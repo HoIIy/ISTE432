@@ -1,7 +1,9 @@
 
-% Milestone 1 - Requirements
-% Maggie Jin, Holly Borrino, and Ian Kitchen
-% September 14, 2017
+% Milestone 1 - Requirements %
+
+% Maggie Jin, Holly Borrino, and Ian Kitchen %
+
+% September 14, 2017 %
 
 
 ## Glossary
