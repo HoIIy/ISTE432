@@ -1,0 +1,8 @@
+Key:
+tx9yueaUYcSYJn46Jov6S2KaP0F6h2oeWpgaPM9c
+
+Examples:
+  (this grabs everything from the database)
+  https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=tx9yueaUYcSYJn46Jov6S2KaP0F6h2oeWpgaPM9c&format=JSON
+  (this grabs everything with fuel type of e85 and electric, from the state of cal, limit only 2 results)
+  https://developer.nrel.gov/api/alt-fuel-stations/v1.json?fuel_type=E85,ELEC&state=CA&limit=2&api_key=tx9yueaUYcSYJn46Jov6S2KaP0F6h2oeWpgaPM9c&format=JSON
