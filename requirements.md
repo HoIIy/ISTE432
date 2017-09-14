@@ -53,4 +53,4 @@ The following inputs will be used:
 
 ## Data Sources
 
-* __[source](https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=tx9yueaUYcSYJn46Jov6S2KaP0F6h2oeWpgaPM9c&format=JSON)__ - This includes a full list of alternative fuel stations in the nation.
+* __[source](https://developer.nrel.gov/docs/transportation/alt-fuel-stations-v1/all/)__ - This includes a a description of the data and a GET request to retrieve the full list of alternative fuel stations in the nation.
