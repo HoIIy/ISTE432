@@ -10,7 +10,7 @@
 
 ## Current System
 
-Description of the current system.
+There are several current systems for finding an appropriate gas station for a specialized vehicle.
 
 
 ## Goals
