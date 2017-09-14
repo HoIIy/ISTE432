@@ -52,4 +52,4 @@ The following inputs will be used:
 
 ## Data Sources
 
-* __[source](url)__ - describe api
+* __[source](https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=tx9yueaUYcSYJn46Jov6S2KaP0F6h2oeWpgaPM9c&format=JSON)__ - describe api
