@@ -10,7 +10,7 @@
 
 ## Current System
 
-There are several current systems for finding an appropriate gas station for a specialized vehicle.
+Description of the current system.
 
 
 ## Goals
@@ -22,8 +22,8 @@ We plan on designing and building ___ that addresses the problems identified by 
 ## Stakeholders
 
 * Stakeholder
-    * Stakeholder wants x
-    * Stakeholder needs y
+    * Vehicle owner
+    * Stations that shared information in the data 
     
     
 ## Scope
@@ -54,3 +54,5 @@ The following inputs will be used:
 ## Data Sources
 
 * __[source](https://developer.nrel.gov/docs/transportation/alt-fuel-stations-v1/all/)__ - This includes a a description of the data and a GET request to retrieve the full list of alternative fuel stations in the nation.
+* __[source](http://bit.ly/2eZh0EH)__ - Alternative Fuels Data Center 
+    * This is the app that used the same set of data with the purpose of finding a station using GET requests from the users.
