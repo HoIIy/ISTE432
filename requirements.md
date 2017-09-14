@@ -48,8 +48,9 @@ The following inputs will be used:
 ## Output
 
 * For group: description of output
+* The output shows the information about the station. Such as the name, address phone number, station status, fuel types that station have and cards that are accepted at the station.
 
 
 ## Data Sources
 
-* __[source](https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=tx9yueaUYcSYJn46Jov6S2KaP0F6h2oeWpgaPM9c&format=JSON)__ - describe api
+* __[source](https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=tx9yueaUYcSYJn46Jov6S2KaP0F6h2oeWpgaPM9c&format=JSON)__ - This includes a full list of alternative fuel stations in the nation.
