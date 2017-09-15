@@ -22,7 +22,6 @@ We plan on designing and building alternitive fuel station mapping application t
 * Planned stations would be listed and differentiate with open stations.
 * One the side, users could know what kind of card the stations could accept.
 
-...
 
 ## Stakeholders
 
