@@ -67,3 +67,4 @@ The following inputs will be used:
 
 * __[API](https://developer.nrel.gov/docs/transportation/alt-fuel-stations-v1/all/)__ - This includes a a description of the data and a GET request to retrieve the full list of alternative fuel stations in the nation.
 * __[Alternative Fuels Data Center](http://bit.ly/2eZh0EH)__ - This is the app that used the same set of data with the purpose of finding a station using GET requests from the users.
+* __[Google Maps API](https://developers.google.com/maps/documentation/javascript/)__ - The google maps API for accurrate and concurrent location data.
