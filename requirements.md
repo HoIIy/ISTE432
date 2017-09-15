@@ -15,15 +15,20 @@ Description of the current system.
 
 ## Goals
 
-We plan on designing and building ___ that addresses the problems identified by the stakeholders we interviewed. Our solution will provide the following additional functionality and changes:
+We plan on designing and building alternitive fuel station mapping application that addresses the problems identified by the stakeholders we interviewed. Our solution will provide the following additional functionality and changes:
+    * Users could only search for public stations with their convenience.
+    * Users could search for the station with their request of location, zipcode or state.
+    * Users coud use search for certain fuel that provided by the station. 
+    * Planned stations would be listed and differentiate with open stations.
+    * One the side, users could know what kind of card the stations could accept.
 
 ...
 
 ## Stakeholders
 
 * Stakeholder
-    * Vehicle owner
-    * Stations that shared information in the data 
+    * Vehicle owners would want to search for the fuel stations that near them. It could be for emergency uses, general acknowledge uses or other kinds of uses.
+    * Fuel station owners share their information in the table and they could search for the planned stations and opened stations for futures uses or other business uses. 
     
     
 ## Scope
