@@ -31,11 +31,15 @@ We plan on designing and building ___ that addresses the problems identified by 
 This is a description of the scope of the project and its limitations. What are we accomplishing? What are we deliberately NOT doing and why?
 
 
-## Input
+## Inputs
 
 The following inputs will be used:
 
-* Description of user input or other entered data (not from the back end?)
+* User will either allow location services to be used or enter in address and/or zipcode manually as a search query.
+* User can filter search results by private, public, or both, fuel type, payment type, and owner type.
+* Fuel station data from from a publically available API from NREL (National Renewable Energy Laboratory).
+* Users can enter data about new fuel stations that aren't currently in the database.
+* Users can press a button to save fuel stations for quicker access to frequently used stations.
 
 
 ## Processing
@@ -45,7 +49,7 @@ The following inputs will be used:
 * More information about how data will be processed (and what the result will be).
 
 
-## Output
+## Outputs
 
 * For group: description of output
 * The output shows the information about the station. Such as the name, address phone number, station status, fuel types that station have and cards that are accepted at the station.
