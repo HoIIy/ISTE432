@@ -5,7 +5,15 @@
 
 ## Glossary
 
-* __Fuel Type__ - Definition. //todo
+* __Fuel Type__ - Self-explanatory. Fuel types include biodiesel (BD) with 20% or greater biodiesel and 80% or less petroleum diesel, compressed natural gas (CNG), ethanol (E85) with a 51%-83% ethanol concentration, electricity (ELEC), hydrogen (HY), liquefied natural gas (LNG), and liquefied petroleum gas (LNG) more commonly called propane.
+
+* __EV Network__ - Electrical Vehicle Charging Network. Providers include AeroVironment, Blink, ChargePoint, EV Connect, eVgo, GE WattStation, Greenlots, OpConnect, SemaCharge, and Tesla.
+
+* __EV Charging Level__ - Electrical Vehicle Charging Level. Options include "all", level 1 (standard 110V outlet, inexpensive), level 2 (240-V or 280-V with a J1772 connector - more powerful and expensive), DC fast charging (which supersedes level 1 and level 2, designed for fast charging with output between 50 to 120 kilowatts), and legacy charging systems (like inductive paddles) that may be largely obsolete but still functional.
+
+* __EV connector type__ - Plug type, basically. Level 1 includes NEMA 5-15, NEMA 5-20, and NEMA 14-50; level 2 has been standardized around the J1772 connector. DC fast charging can be either CHAdeMO or an SAE J1772 Combo, whereas Tesla has its own connector for level 2 and DC fast charging.
+
+* __Blender pump__ - E85 gas must be blended. A blender pump draws fuels from separate tanks and mixes them together in a custom percentage; theoretically a station with a blend pump could have one tank with only unleaded fuel and one tank with only ethanol mixed together at the customer's discretion, but in practice customers generally approach one pump with various blend options. These are targeted at "flexible fuel vehicle" owners.
 
 
 ## Current System
@@ -35,7 +43,7 @@ We plan on designing and building an alternative-fuel-station mapping applicatio
     
 ## Scope
 
-The scope of this project is an application that allows users to search for alternative fuel locations and narrow down search results by name, status (open, planned, or temporarily unavailable), fuel type (BD, CNG, E85, ELEC, HY, LNG, LPG), ownership (subtypes are essentially public, private, or governmental), vicinity (within x number of miles/km), payment method (cash, check, Visa, etc.), electrical equipment charging level  connector type, and location (address). Selecting a fuel location will display additional details, such as expected availability date for planned stations or hours of operation. 
+The scope of this project is an application that allows users to search for alternative fuel locations and narrow down search results by name, status (open, planned, or temporarily unavailable), fuel type (BD, CNG, E85, ELEC, HY, LNG, LPG), ownership (subtypes are essentially public, private, or governmental), vicinity (within x number of miles/km), payment method (cash, check, Visa, etc.), the level of biodiesel blends a given biodiesel-inclusive station provides, whether a blending pump is on station for E85, electrical charging level (all, 1, 2, DC fast charging, or legacy), electrical connector type (various), electrical network provider (various), number of outlets if applicable, and location (address). Selecting a fuel location will display additional details, such as expected availability date for planned stations or hours of operation. 
 
 We are integrating with the Google Maps API to allow us to let it handle many aspects of visualizing data, creating marker clusters, and creating a URL that can open a chosen location directly in Maps for mobile driving directions.
 
