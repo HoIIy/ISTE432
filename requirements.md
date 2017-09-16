@@ -5,7 +5,7 @@
 
 ## Glossary
 
-* __Term__ - Definition. //todo
+* __Fuel Type__ - Definition. //todo
 
 
 ## Current System
@@ -35,7 +35,13 @@ We plan on designing and building an alternative-fuel-station mapping applicatio
     
 ## Scope
 
-The scope of this project is an application that allows us to locate alternative fuel stations, //todo
+The scope of this project is an application that allows users to search for alternative fuel locations and narrow down search results by name, status (open, planned, or temporarily unavailable), fuel type (BD, CNG, E85, ELEC, HY, LNG, LPG), ownership (subtypes are essentially public, private, or governmental), vicinity (within x number of miles/km), payment method (cash, check, Visa, etc.), electrical equipment charging level  connector type, and location (address). Selecting a fuel location will display additional details, such as expected availability date for planned stations or hours of operation. 
+
+Integration with the Google Maps API will allow us to visualize data, create marker clusters, and create a URL that can open a chosen location directly in Google Maps for purposes of mobile driving directions.
+
+For purposes of this project and its time limitations, we are triaging plans to prioritize core functionalities, i.e. being able to use the map at a basic level to find available stations and pick one for directions, and build desired but ultimately optional features last, such as user-inputted new stations.
+
+We are also limiting the scope of our app geographically to the United States, as we cannot reliably gather information on international locations.
 
 
 ## Inputs
