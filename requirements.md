@@ -1,5 +1,5 @@
-#### Milestone 1 - Requirements (September 15, 2017)
-#### By Maggie Jin, Holly Borrino, and Ian Kitchen 
+% Milestone 1 - Requirements (September 15, 2017)
+% By Maggie Jin, Holly Borrino, and Ian Kitchen 
 
 
 
