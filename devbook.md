@@ -79,6 +79,14 @@ Professor ->->->->->teaches->->->->->Class"
 ## Timeline
 
 ## Layering
+* __Daya Layer__ - JSON obtained from data sources, MySQL data obtained from a database, and classes that read the data in and abstract it to be able to work with it.
+
+* __Business Layer__ - ? - 
+
+* __Application Layer__ - ? - 
+
+* __Presentation Layer__ - A web application that uses a combination of HTML, CSS, JavaScript, jQuery, and NodeJS.
+
 
 ## Exception Handling
 "lease add a section toyour development book identifying exceptions and categories ofexceptions you expect to account for in your code. You must in-clude examples of actual exception-handling code in this mile-stone."
