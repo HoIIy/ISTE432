@@ -9,7 +9,7 @@ As our team only has three members, there will inevitably be overlap between rol
 
 However, we do have roles that team members are individually responsible for unless otherwise is agreed upon at a later date. One member may occupy more than one role, and roles can be formally split between members if appropriate. As team projects can be difficult to successfully organize, these roles come with the implicit understanding that individual work must be done significantly in advance before a deadline: so, in the event of illness, catastrophe, or any other inability to complete the designated work, another team member will have enough time to pick up the slack.
 
-* __Project Manager__ - ? - accounts for overall coordination of project, checking in with members, monitoring deadlines, and ensuring that work is steadily progressing.
+* __Project Manager__ - __*Holly*__ (only if neither of you want to handle it) - accounts for overall coordination of project, checking in with members, monitoring deadlines, and ensuring that work is steadily progressing.
 
 * __Document Writer__ - __*Holly*__ - responsible for the non-code documents with the project, especially during the planning process. Still works together with other members on the composition of those documents, but accounts for file formatting, proofreading, and overall quality checking of written submissions. May write more than 1/3 of the content too.
 
