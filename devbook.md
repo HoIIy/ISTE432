@@ -11,7 +11,7 @@ However, we do have roles that team members are individually responsible for unl
 
 * __Project Manager__ - ? - accounts for overall coordination of project, checking in with members, monitoring deadlines, and ensuring that work is steadily progressing.
 
-* __Document Writer__ - __Holly__ - responsible for the textual non-code documents with the project, especially during the planning process. Still works together with other members on the composition of those documents, but accounts for file formatting, proofreading, and overall quality checking of written submissions. May write more than 1/3 of the content too.
+* __Document Writer__ - __*Holly*__ - responsible for the textual non-code documents with the project, especially during the planning process. Still works together with other members on the composition of those documents, but accounts for file formatting, proofreading, and overall quality checking of written submissions. May write more than 1/3 of the content too.
 
 * __Application Designer__ - ? - responsible for the design of the program, especially during the planning process; still works with the other members on the composition of the program and discussion about the merit of the design choices, but accounts for diagrams, rough-draft explanations of the application design, being able to articulate the reasoning behind choices, ultimate choice of design pattern, and overall quality checking of the chosen design. Responsible for more than 1/3 of the input and brainstorming, too.
 
