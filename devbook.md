@@ -134,7 +134,10 @@ After through the end of the semester: refactoring party.
 * __Presentation Layer__ - A web application that uses a combination of HTML, CSS, JavaScript, jQuery, and either NodeJS or PHP, depending on which we decide on shortly. This is the layer that faces the user, takes actions from the user, passes requests to the application layer, and accepts output from the application layer to display to the user.
 
 **Additional layering requirements:**
-* in the tiered architecture, each layer sends to only one other layer and receives from only one other layer. There should not be a separate infrastructure for communicating between all layers, because they don’t all communicate. *data layer->business layer->application layer->presentation layer.*
+* in the tiered architecture, each layer sends to only one other layer and receives from only one other layer. There should not be a separate infrastructure for communicating between all layers, because they don’t all communicate. 
+
+    *data layer->business layer->application layer->presentation layer.*
+    
 * the data layer should be the only layer with sql. 
 * the presentation layer should be the only layer that communicates with the end user.
 
