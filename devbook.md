@@ -9,35 +9,64 @@ As our team only has three members, there will inevitably be overlap between rol
 
 However, we do have roles that team members are individually responsible for unless otherwise is agreed upon at a later date. One member may occupy more than one role, and roles can be formally split between members if appropriate. As team projects can be difficult to successfully organize, these roles come with the implicit understanding that individual work must be done significantly in advance before a deadline: so, in the event of illness, catastrophe, or any other inability to complete the designated work, another team member will have enough time to pick up the slack.
 
-* __Project Manager__ - __*Holly (only if neither of you want to take it instead, I'm not fussed)*__  - accounts for overall coordination of project, checking in with members, monitoring deadlines, and ensuring that work is steadily progressing.
+* __Project Manager__ - __*Holly*__  - accounts for overall coordination of project, checking in with members, monitoring deadlines, and ensuring that work is steadily progressing.
 
 * __Document Writer__ - __*Holly*__ - responsible for the non-code documents with the project, especially during the planning process. Still works together with other members on the composition of those documents, but accounts for file formatting, proofreading, and overall quality checking of written submissions. May write more than 1/3 of the content too.
 
 * __Application Designer__ - ? - responsible for the design of the program, especially during the planning process; still works with the other members on the composition of the program and discussion about the merit of the design choices, but accounts for diagrams, rough-draft explanations of the application design, being able to articulate the reasoning behind choices, ultimate choice of design pattern, and overall quality checking of the chosen design. Responsible for more than 1/3 of the input and brainstorming, too.
 
-* __~~code monkey~~ ~~script slave~~ Application Programmer__ - ?/? - responsible for the creation of the program...of course not entirely; the role should be shared by two members volunteering to do more than 1/3 of the actual coding process to allow the third to focus on the incidental requirements, refactoring, testing, etc. Application programmers are responsible for being able to articulate coding choices and what the produced code does on a step-by-step level, especially any deviations from the original design plan, along with ensuring that the third person is staying current with their understanding of the product.
+* __~~code monkey~~ ~~script slave~~ Application Programmer(s)__ - ?/? - responsible for the creation of the program...of course not entirely; the role should be shared by two members volunteering to do more than 1/3 of the actual coding process to allow the third to focus on the incidental requirements, refactoring, testing, etc. Application programmers are responsible for being able to articulate coding choices and what the produced code does on a step-by-step level, especially any deviations from the original design plan, along with ensuring that the third person is staying current with their understanding of the product.
 
 * __Application Tester__ - ? - responsible for testing the final creation: mainly writing unit tests and any documentation needed to accompany that. Ideally, we're planning on two application programmers and a third application tester whose job is to (preemptively and eventually) flush out bugs by doing their best to break what the others initially constructed.
 
 ## Background
+Holly - 
 
+Ian -
+
+Maggie -
+
+--todo
 
 ## Project Description
-
+Our project is an alternative fuel station locator. It's planned to be a mobile web application that allows users to open selected locations in their Google Maps mobile application, integrated with a MySQL database to be able to store persistent data about users.
 
 ## Project Requirements
 
 The project must:
 
-* face potential issues with data input
-* face potential issues of data integrity
-* be amenable to the specification and use of design patterns
-* use a layered architecture4.provide exception handling in a layered manner
-* include testing
-* require some authentication and authorization work
-* include user help of some kind8.be packaged for some degree of portability
-* be refactored to some extent near the end of the semester 
-* be designed with cognizance of potential regulatory issues
+* face potential issues with data input: 
+    *"Users can search for stations by location: street name, city, zipcode, or state. Users will enter in their address and/or zipcode manually to be able to run search queries *or* allow automatic access of device location. Users can increase or decrease the radius size that the search results bring back - likely by numerical input."* Inputting a radius of "99999999999 km" is an example of potential input issues we expect to handle.
+    
+* face potential issues of data integrity:
+    *"Users can create a user account by entering an email, username, and password in the appropriate form."* Creating a user account and attempting to make the email an emoji is an example of potential data integrity issues with this project.
+
+* be amenable to the specification and use of design patterns:
+    We plan to use an Observer pattern, with a Subject/Observable that listens for requests to update, notifies Observers about them (i.e. user requests for data), then accepts new state and displays it.
+
+* use a layered architecture:
+    Our application will have separate data, business, application, and presentation layers. See the appropriate subsection of this document for more information on each layer's role.
+
+* provide exception handling in a layered manner:
+    All exceptions below the application layer will be thrown upwards and outputted to the presentation layer in a safely managed form that doesn't offer any more information than necessary but still avoids unnecessary ambiguity.
+
+* include testing:
+    Unit tests will be written after each component of code is developed, ideally by a split team with 2 working on code and 1 working on testing that code. This will allow us to deviate from our initial design if necessary but not leave testing for last...which all the obvious issues that arise with that.
+
+* require some authentication and authorization work:
+    User accounts.
+
+* include user help of some kind:
+    A "help" page and tooltips.
+
+* be packaged for some degree of portability:
+    As a mobile web application, it will be compatible with major browsers (FF, Chrome, Opera, IE) and be able to be accessed from any mobile device that can run those browsers.
+
+* be refactored to some extent near the end of the semester:
+    N/A (right now)
+
+* be designed with cognizance of potential regulatory issues:
+    "Users can filter search results by private, public, or both, along with fuel type, payment type, and owner type, via selection dropdowns or a similar preset list of options." Regulations potentially interfere with the usage of our application if we ignore which stations are designated "private" vs. "public", so we'll make sure to take those into account and allow the user to follow legal regulations for station availability rather than accidentally trespassing.
 
 Additional requirements:
 
@@ -46,8 +75,8 @@ Additional requirements:
 * pictures should be presented in the pdf or in separate files readable by the instruc-tor (not proprietary, not visio or bmp). We will expect to use **png** format.
 * as we revise this document, we must provide a way to see how it has changed. For instance, if we change the technologies used, the section should still list the original technologies planned to be used in a subsection where we describe why we switched. We plan to use **appropriate subsections** along with **commenting updated changes in git commit comments** so we can easily track what changed when.
 * in the tiered architecture, each layer sends to only one other layer and receives from only one other layer. There should not be a separate infrastructure for communicating between all layers: because they don’t all communicate. **data layer->business layer->application layer->presentation layer.**
-* the data layer should be the onlylayer with sql. 
-* the presentation layer should be the only layer thatcommunicates with the end user.
+* the data layer should be the only layer with sql. 
+* the presentation layer should be the only layer that communicates with the end user.
 
 ## Business Rules
 "When involved in a business or even a business project, there are 3 major rules that are created to affect the way your business works. Usually, these are rules that involve employees or staff and are rules that specify what they can and cannot do. A great example of a business rule involves marriages. For many companies, a manager is not allowed to marry an employee or an accountant at a company is usually not allowed to marry another accountant. In this case, the accountants are not allowed to be married because there is a more likely chance that the spouses can change financial information and then cover for one another. These rules are intended to prevent disruption in a company or business.
@@ -61,32 +90,27 @@ Identifying and documenting business rules are very important to the database de
 
 
 Some examples of business rules:
-
-
 Departments ------offers---------Course
-
-
-
 Course----------generates---------Class
-
-
 Professor ->->->->->teaches->->->->->Class"
 
 *^ placeholder*
+--todo
 
 ## Technologies Used
+--todo
 
 ## Timeline
+--todo
 
 ## Layering
-* __Daya Layer__ - JSON obtained from data sources, MySQL data obtained from a database, and classes that read the data in and abstract it to be able to work with it.
+* __Daya Layer__ - Likely to be JSON obtained from data sources, MySQL data obtained from a database, and classes that read the data in/out and abstract it to be able to work with it. The raw information, essentially, and ferrying it between external sources and internal operations. May return errors to the business layer instead of data.
 
-* __Business Layer__ - ? - 
+* __Business Layer__ - Classes that work with that data layer: modifying, fetching, deleting, or asking it to add data, for example, along with error handling for those operations. Universal business logic that could be reused in any other application that works with the same data.
 
-* __Application Layer__ - ? - 
+* __Application Layer__ - Classes that work with the business layer: directing it. The application layer will be application-specific business logic that works with that data on the level of our application - receiving a request for data from the user (who's interacted with the presentation layer) then asking the business layer to fetch appropriate data, which asks the data layer for that data and passes it back up. Contains error handling. If we wanted to change what our application does, we would change this.
 
-* __Presentation Layer__ - A web application that uses a combination of HTML, CSS, JavaScript, jQuery, and NodeJS.
-
+* __Presentation Layer__ - A web application that uses a combination of HTML, CSS, JavaScript, jQuery, and either NodeJS or PHP, depending on which we decide on shortly. This is the layer that faces the user, takes actions from the user, passes requests to the application layer, and accepts output from the application layer to display to the user.
 
 ## Exception Handling
 "lease add a section toyour development book identifying exceptions and categories ofexceptions you expect to account for in your code. You must in-clude examples of actual exception-handling code in this mile-stone."
@@ -96,17 +120,21 @@ when an exception is thrown, it can be handled or passedup the layers. You have 
 
 * Where will exceptions ceased to be passed on?  
 * What is the kind of person who should respond to them?
+--todo
 
 ## Performance and Refactoring
-"Give examples of code there or coding practices there that youare doing to improve performance of your project. For projectswhere we identified refactoring opportunities, carry those out andall groups should include their current code with the document.The best case would be to put pointers in the document (e.g., file-names and line numbers or classnames and offsets) rather thancode fragments in the document.Improve your existing code and respond tosurprisinginstruc-tions from management. This milestone may be particularly stress-ful depending on how well you have completed the previous mile-stones. Thesurprisinginstructions will test the quality of your codethus far."
-*^ placeholder*
+["Give examples of code there or coding practices there that you are doing to improve performance of your project. For projects where we identified refactoring opportunities, carry those out and all groups should include their current code with the document. The best case would be to put pointers in the document (e.g., file-names and line numbers or classnames and offsets) rather than code fragments in the document. Improve your existing code and respond to surprising instructions from management. This milestone may be particularly stressful depending on how well you have completed the previous mile-stones. The surprising instructions will test the quality of your code thus far."]
+
+**N/A on 9/30. (no code yet.)**
 
 ## Testing
-"lease add a section to your devel-opment book identifying your testing framework. Please includespecific code and diagrams as appropriate. Instrumented code andbuild files should be in separate files from the development bookor simply included in the document as appendices and explainedn a section in the main body. Whether you include them as ap-pendices or separate files, they should be displayed with line num-bers so you can make references to specific parts in the narrative inthe testing section of the development book. It needs to be unam-biguous as to which file or appendix you are referencing in yournarrative.Don’t make implicit assumptions. Be specific even to the pointof being tedious in your explanations. I am not looking for broadcoverage so much as good coverage of whatever you do test. Also,even though I say I am not looking for broad coverage, the exam-ples you do use should not be trivially different versions of eachother.
+[Please add a section to your development book identifying your testing framework. Please include specific code and diagrams as appropriate. Instrumented code and build files should be in separate files from the development book or simply included in the document as appendices and explained in a section in the main body. Whether you include them as appendices or separate files, they should be displayed with line numbers so you can make references to specific parts in the narrative in the testing section of the development book. It needs to be unambiguous as to which file or appendix you are referencing in your narrative. Don’t make implicit assumptions. Be specific even to the point of being tedious in your explanations. I am not looking for broad coverage so much as good coverage of whatever you do test. Also, even though I say I am not looking for broad coverage, the examples you do use should not be trivially different versions of each other.
 
-The Wikipedia entry onUnit Testingsays the following aboutunit testing. Please be sure to include a unit test that conforms tothis specification for your database layer.Because some classes may have references to other classes, test-ing a class can frequently spill over into testing another class. A com-mon example of this is classes that depend on a database: in orderto test the class, the tester often writes code that interacts with thedatabase. This is a mistake, because a unit test should usually notgo outside of its own class boundary, and especially should not crosssuch process/network boundaries because this can introduce unac-ceptable performance problems to the unit test-suite. Crossing suchunit boundaries turns unit tests into integration tests, and when testcases fail, makes it less clear which component is causing the failure.See alsoFakes, mocks and integration tests.Instead, the software developer should create an abstract inter-face around the database queries, and then implement that interfacewith their own mock object.  By abstracting this necessary attach-ment from the code (temporarily reducing the net effective coupling),the independent unit can be more thoroughly tested than may havebeen previously achieved. This results in a higher-quality unit thatis also more maintainable.In particular, please create a mock object to mimic your database.It should exhibit the same interface as your database although itwill respond in a canned manner. This is described in the Wikipediaentry for mock object."
-*^placeholder*
+Please be sure to include a unit test that conforms to this specification for your database layer. Because some classes may have references to other classes, testing a class can frequently spill over into testing another class. A common example of this is classes that depend on a database: in order to test the class, the tester often writes code that interacts with the database. This is a mistake, because a unit test should usually not go outside of its own class boundary, and especially should not cross such process/network boundaries because this can introduce unacceptable performance problems to the unit test-suite. Crossing such unit boundaries turns unit tests into integration tests, and when test cases fail, makes it less clear which component is causing the failure. Instead, the software developer should create an abstract interface around the database queries, and then implement that interface with their own mock object. By abstracting this necessary attachment from the code (temporarily reducing the net effective coupling), the independent unit can be more thoroughly tested than may have been previously achieved. This results in a higher-quality unit that is also more maintainable. In particular, please create a mock object to mimic your database. It should exhibit the same interface as your database although it will respond in a canned manner. This is described in the Wikipedia entry for mock object. *Basically, make a fake database for testing, don't test code doing something else that has to insert/delete in the process and have to figure out whether it's failing or your insert/deletion from the business layer is failing or your MySQL login information is incorrect or...etc.*]
+
+**N/A on 9/30. (no code yet.)**
 
 ## Deployment and Packaging
-"Please add a section toyour development book detailing everything needed for packagingand deployment. This should include README files or whateveris provided so that a user with no access to you can simply installand run your app based on the info you provide here or whichis pointed to from this location. For example, if your app can becloned from github, you should point to the location and provideany instructions needed in addition to the relevant git commands.These instructions should include any required packages of anykind. As another example, if your app is hosted on a website, pro-vide complete instructions for setting it up on someone else’s web-site. There should be some kind of package that can be delivered toa client and used without the personal intervention of your team.Finally, you should include a help specification, detailing whatkinds of help would be provided in a full-blown installation of yourapp. There is probably not time to create a full-blown help systemso provide a substantive example of help for your system by pickingone aspect of your app as a target for help."
-*^ placeholder*
+[Please add a section toyour development book detailing everything needed for packaging and deployment. This should include README files or whatever is provided so that a user with no access to you can simply install and run your app based on the info you provide here or which is pointed to from this location. For example, if your app can be cloned from github, you should point to the location and provide any instructions needed in addition to the relevant git commands. These instructions should include any required packages of any kind. As another example, if your app is hosted on a website, provide complete instructions for setting it up on someone else’s website. There should be some kind of package that can be delivered to a client and used without the personal intervention of your team. Finally, you should include a help specification, detailing whatkinds of help would be provided in a full-blown installation of your app. There is probably not time to create a full-blown help system so provide a substantive example of help for your system by picking one aspect of your app as a target for help.]
+
+**Mostly N/A on 9/30. (no code yet.)** However, since we know we're using Github, we'll probably point to the location like that in the end. I also plan to host the application online, so I can host a help wiki with it, maybe? I saw that work really well in a past class's team projects.
