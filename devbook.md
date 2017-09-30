@@ -41,7 +41,7 @@ The project must:
 
     > "Users can create a user account by entering an email, username, and password in the appropriate form." 
     
-    Creating a user account and attempting to make the email an emoji is an example of potential data integrity issues with this project.
+    Creating a user account and attempting to make the email an emoji is an example of potential data integrity issues with this project. Or designing the database column 'name' to be 20 chars long but accepting a 25 char username at the application level and attempting to insert it anyways.
 
 3. Be amenable to the specification and use of design patterns:
 
