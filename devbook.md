@@ -35,13 +35,13 @@ The project must:
 
     >"Users can search for stations by location: street name, city, zipcode, or state. Users will enter in their address and/or zipcode manually to be able to run search queries *or* allow automatic access of device location. Users can increase or decrease the radius size that the search results bring back - likely by numerical input." 
     
-    Inputting a radius of "99999999999 km" is an example of potential input issues we expect to handle.
+Inputting a radius of "99999999999 km" is an example of potential input issues we expect to handle.
     
 **2. Face potential issues of data integrity:**
 
     > "Users can create a user account by entering an email, username, and password in the appropriate form." 
     
-    Creating a user account and attempting to make the email an emoji is an example of potential data integrity issues with this project. Or designing the database column 'name' to be 20 chars long but accepting a 25 char username at the application level and attempting to insert it anyways.
+Creating a user account and attempting to make the email an emoji is an example of potential data integrity issues with this project. Or designing the database column 'name' to be 20 chars long but accepting a 25 char username at the application level and attempting to insert it anyways.
 
 **3. Be amenable to the specification and use of design patterns:**
 
