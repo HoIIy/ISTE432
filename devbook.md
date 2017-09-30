@@ -31,51 +31,51 @@ Our project is an alternative fuel station locator. It's planned to be a mobile 
 
 The project must:
 
-**1. Face potential issues with data input:**
+1. **Face potential issues with data input:**
 
     >"Users can search for stations by location: street name, city, zipcode, or state. Users will enter in their address and/or zipcode manually to be able to run search queries *or* allow automatic access of device location. Users can increase or decrease the radius size that the search results bring back - likely by numerical input." 
     
 Inputting a radius of "99999999999 km" is an example of potential input issues we expect to handle.
     
-**2. Face potential issues of data integrity:**
+2. **Face potential issues of data integrity:**
 
     > "Users can create a user account by entering an email, username, and password in the appropriate form." 
     
 Creating a user account and attempting to make the email an emoji is an example of potential data integrity issues with this project. Or designing the database column 'name' to be 20 chars long but accepting a 25 char username at the application level and attempting to insert it anyways.
 
-**3. Be amenable to the specification and use of design patterns:**
+3. **Be amenable to the specification and use of design patterns:**
 
     We plan to use an Observer pattern on the application level, with a Subject/Observable that listens for requests to update, notifies Observers about them (i.e. user requests for data), then accepts new state and displays it.
 
-**4. Use a layered architecture:**
+4. **Use a layered architecture:**
 
     Our application will have separate data, business, application, and presentation layers. See the appropriate subsection of this document for more information on each layer's role.
 
-**5. Provide exception handling in a layered manner:**
+5. **Provide exception handling in a layered manner:**
 
     All exceptions below the application layer will be thrown upwards and outputted to the presentation layer in a safely managed form that doesn't offer any more information than necessary but still avoids unnecessary ambiguity.
 
-**6. Include testing:**
+6. **Include testing:**
 
     Unit tests will be written after each component of code is developed, ideally by a split team with 2 working on code and 1 working on testing that code. This will allow us to deviate from our initial design if necessary but not leave testing for last...which all the obvious issues that arise with that.
 
-**7. Require some authentication and authorization work:**
+7. **Require some authentication and authorization work:**
 
     User accounts.
 
-**8. Include user help of some kind:**
+8. **Include user help of some kind:**
 
     A "help" page and tooltips.
 
-**9. Be packaged for some degree of portability:**
+9. **Be packaged for some degree of portability:**
 
     As a mobile web application, it will be compatible with major browsers (FF, Chrome, Opera, IE) and be able to be accessed from any mobile device that can run those browsers.
 
-**10. Be refactored to some extent near the end of the semester:**
+10. **Be refactored to some extent near the end of the semester:**
 
     N/A (right now)
 
-**11. Be designed with cognizance of potential regulatory issues:**
+11. **Be designed with cognizance of potential regulatory issues:**
 
     *"Users can filter search results by private, public, or both, along with fuel type, payment type, and owner type, via selection dropdowns or a similar preset list of options."* Regulations potentially interfere with the usage of our application if we ignore which stations are designated "private" versus "public"; we'll make sure to take those into account and allow the user to follow legal regulations for station availability rather than accidentally trespassing.
 
