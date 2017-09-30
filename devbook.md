@@ -32,13 +32,13 @@ Our project is an alternative fuel station locator. It's planned to be a mobile 
 The project must:
 
 * face potential issues with data input: 
-⋅⋅*"Users can search for stations by location: street name, city, zipcode, or state. Users will enter in their address and/or zipcode manually to be able to run search queries *or* allow automatic access of device location. Users can increase or decrease the radius size that the search results bring back - likely by numerical input."* Inputting a radius of "99999999999 km" is an example of potential input issues we expect to handle.
+⋅⋅⋅"Users can search for stations by location: street name, city, zipcode, or state. Users will enter in their address and/or zipcode manually to be able to run search queries *or* allow automatic access of device location. Users can increase or decrease the radius size that the search results bring back - likely by numerical input."* Inputting a radius of "99999999999 km" is an example of potential input issues we expect to handle.
     
 * face potential issues of data integrity:
-⋅⋅* *"Users can create a user account by entering an email, username, and password in the appropriate form."* Creating a user account and attempting to make the email an emoji is an example of potential data integrity issues with this project.
+⋅⋅⋅ *"Users can create a user account by entering an email, username, and password in the appropriate form."* Creating a user account and attempting to make the email an emoji is an example of potential data integrity issues with this project.
 
 * be amenable to the specification and use of design patterns:
-⋅⋅*We plan to use an Observer pattern on the application level, with a Subject/Observable that listens for requests to update, notifies Observers about them (i.e. user requests for data), then accepts new state and displays it.
+⋅⋅⋅We plan to use an Observer pattern on the application level, with a Subject/Observable that listens for requests to update, notifies Observers about them (i.e. user requests for data), then accepts new state and displays it.
 
 * use a layered architecture:
 ⋅⋅*Our application will have separate data, business, application, and presentation layers. See the appropriate subsection of this document for more information on each layer's role.
