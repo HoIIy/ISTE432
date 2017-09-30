@@ -31,42 +31,55 @@ Our project is an alternative fuel station locator. It's planned to be a mobile 
 
 The project must:
 
-1. face potential issues with data input:
+1. Face potential issues with data input:
 
-    *"Users can search for stations by location: street name, city, zipcode, or state. Users will enter in their address and/or zipcode manually to be able to run search queries *or* allow automatic access of device location. Users can increase or decrease the radius size that the search results bring back - likely by numerical input."* Inputting a radius of "99999999999 km" is an example of potential input issues we expect to handle.
+    >"Users can search for stations by location: street name, city, zipcode, or state. Users will enter in their address and/or zipcode manually to be able to run search queries *or* allow automatic access of device location. Users can increase or decrease the radius size that the search results bring back - likely by numerical input." 
     
-* face potential issues of data integrity:
-⋅⋅⋅ *"Users can create a user account by entering an email, username, and password in the appropriate form."* Creating a user account and attempting to make the email an emoji is an example of potential data integrity issues with this project.
+    Inputting a radius of "99999999999 km" is an example of potential input issues we expect to handle.
+    
+2. Face potential issues of data integrity:
 
-* be amenable to the specification and use of design patterns:
-⋅⋅⋅We plan to use an Observer pattern on the application level, with a Subject/Observable that listens for requests to update, notifies Observers about them (i.e. user requests for data), then accepts new state and displays it.
+    > "Users can create a user account by entering an email, username, and password in the appropriate form." 
+    
+    Creating a user account and attempting to make the email an emoji is an example of potential data integrity issues with this project.
 
-* use a layered architecture:
-⋅⋅*Our application will have separate data, business, application, and presentation layers. See the appropriate subsection of this document for more information on each layer's role.
+3. Be amenable to the specification and use of design patterns:
 
-* provide exception handling in a layered manner:
-⋅⋅*All exceptions below the application layer will be thrown upwards and outputted to the presentation layer in a safely managed form that doesn't offer any more information than necessary but still avoids unnecessary ambiguity.
+    We plan to use an Observer pattern on the application level, with a Subject/Observable that listens for requests to update, notifies Observers about them (i.e. user requests for data), then accepts new state and displays it.
 
-* include testing:
-⋅⋅*Unit tests will be written after each component of code is developed, ideally by a split team with 2 working on code and 1 working on testing that code. This will allow us to deviate from our initial design if necessary but not leave testing for last...which all the obvious issues that arise with that.
+4. Use a layered architecture:
 
-* require some authentication and authorization work:
-⋅⋅*User accounts.
+    Our application will have separate data, business, application, and presentation layers. See the appropriate subsection of this document for more information on each layer's role.
 
-* include user help of some kind:
-⋅⋅*A "help" page and tooltips.
+5. Provide exception handling in a layered manner:
 
-* be packaged for some degree of portability:
-⋅⋅*As a mobile web application, it will be compatible with major browsers (FF, Chrome, Opera, IE) and be able to be accessed from any mobile device that can run those browsers.
+    All exceptions below the application layer will be thrown upwards and outputted to the presentation layer in a safely managed form that doesn't offer any more information than necessary but still avoids unnecessary ambiguity.
 
-* be refactored to some extent near the end of the semester:
-⋅⋅*N/A (right now)
+6. Include testing:
 
-* be designed with cognizance of potential regulatory issues:
-⋅⋅*"Users can filter search results by private, public, or both, along with fuel type, payment type, and owner type, via selection dropdowns or a similar preset list of options." Regulations potentially interfere with the usage of our application if we ignore which stations are designated "private" vs. "public", so we'll make sure to take those into account and allow the user to follow legal regulations for station availability rather than accidentally trespassing.
+    Unit tests will be written after each component of code is developed, ideally by a split team with 2 working on code and 1 working on testing that code. This will allow us to deviate from our initial design if necessary but not leave testing for last...which all the obvious issues that arise with that.
+
+7. Require some authentication and authorization work:
+
+    User accounts.
+
+8. Include user help of some kind:
+
+    A "help" page and tooltips.
+
+9. Be packaged for some degree of portability:
+
+    As a mobile web application, it will be compatible with major browsers (FF, Chrome, Opera, IE) and be able to be accessed from any mobile device that can run those browsers.
+
+10. Be refactored to some extent near the end of the semester:
+
+    N/A (right now)
+
+11. Be designed with cognizance of potential regulatory issues:
+
+    *"Users can filter search results by private, public, or both, along with fuel type, payment type, and owner type, via selection dropdowns or a similar preset list of options."* Regulations potentially interfere with the usage of our application if we ignore which stations are designated "private" versus "public"; we'll make sure to take those into account and allow the user to follow legal regulations for station availability rather than accidentally trespassing.
 
 Additional requirements:
-
 * pictures should be presented in the pdf or in separate files readable by the instruc-tor (not proprietary, not visio or bmp). We will expect to use **png** format.
 * as we revise this document, we must provide a way to see how it has changed. For instance, if we change the technologies used, the section should still list the original technologies planned to be used in a subsection where we describe why we switched. We plan to use **appropriate subsections** along with **commenting updated changes in git commit comments** so we can easily track what changed when.
 * must not use any zip files except to bundle code.
@@ -93,21 +106,21 @@ Professor ->->->->->teaches->->->->->Class"
 
 ## Timeline
 **Assuming deadlines remain consistently on Sunday nights:**
-~~M1 - DONE~~
+~~M1 - DONE~~```
 M2 - 10/1 (plan out design, and design patterns)
 M3 - 10/8 (plan out/revise layers)
 M4 - 10/22 (plan out/revise exception handling)
 M5 - 11/5 (refactoring)
 M6 - 11/19 (testing)
 M7 - 11/26 (packaging) (might adjust for thanksgiving break?)
-Final code: 12/9
+Final code: 12/9```
 
 **Unofficial deadlines:**
-10/8  - be finished with all of our planning, complete with diagrams and class pseudocode.
+```10/8  - be finished with all of our planning, complete with diagrams and class pseudocode.
 10/22 - have a working product that can fetch data, display it, and filter that display based on parameters.
 10/31 - have a working product with the trimmings added (user accounts, entering new stations, favoriting stations, and blacklisting stations.)
 11/15 - have packaging, testing, and deployment details situated. Have the project online and fully functional.
-After through the end of the semester: refactoring party.
+After through the end of the semester: refactoring party.```
 
 ## Layering
 * __Daya Layer__ - Likely to be JSON obtained from data sources, MySQL data obtained from a database, and classes that read the data in/out and abstract it to be able to work with it. The raw information, essentially, and ferrying it between external sources and internal operations. May return errors to the business layer instead of data.
