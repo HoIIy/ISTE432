@@ -20,11 +20,7 @@ However, we do have roles that team members are individually responsible for unl
 * __Application Tester__ - ? - responsible for testing the final creation: mainly writing unit tests and any documentation needed to accompany that. Ideally, we're planning on two application programmers and a third application tester whose job is to (preemptively and eventually) flush out bugs by doing their best to break what the others initially constructed.
 
 ## Background
-Holly - 
-
-Ian -
-
-Maggie -
+[This is the background of the problem that inspired the project or the circumstances that caused the project. You might also include in this section anything that you know about prior efforts along the same lines such as GitHub repos you might have encountered the deal with the same thing. You might also mention articles that you've read about the problem or about possible solutions to the problem.]
 
 --todo
 
@@ -42,7 +38,7 @@ The project must:
     *"Users can create a user account by entering an email, username, and password in the appropriate form."* Creating a user account and attempting to make the email an emoji is an example of potential data integrity issues with this project.
 
 * be amenable to the specification and use of design patterns:
-    We plan to use an Observer pattern, with a Subject/Observable that listens for requests to update, notifies Observers about them (i.e. user requests for data), then accepts new state and displays it.
+    We plan to use an Observer pattern on the application level, with a Subject/Observable that listens for requests to update, notifies Observers about them (i.e. user requests for data), then accepts new state and displays it.
 
 * use a layered architecture:
     Our application will have separate data, business, application, and presentation layers. See the appropriate subsection of this document for more information on each layer's role.
@@ -70,13 +66,14 @@ The project must:
 
 Additional requirements:
 
-* must not use any zip files except to bundle code.
-* must present "this" (and likely any other textual document) as a pdf, markdown, html, or a format agreed uponby the instructor (not proprietary, not ms office).
 * pictures should be presented in the pdf or in separate files readable by the instruc-tor (not proprietary, not visio or bmp). We will expect to use **png** format.
 * as we revise this document, we must provide a way to see how it has changed. For instance, if we change the technologies used, the section should still list the original technologies planned to be used in a subsection where we describe why we switched. We plan to use **appropriate subsections** along with **commenting updated changes in git commit comments** so we can easily track what changed when.
-* in the tiered architecture, each layer sends to only one other layer and receives from only one other layer. There should not be a separate infrastructure for communicating between all layers: because they don’t all communicate. **data layer->business layer->application layer->presentation layer.**
+* in the tiered architecture, each layer sends to only one other layer and receives from only one other layer. There should not be a separate infrastructure for communicating between all layers, because they don’t all communicate. *data layer->business layer->application layer->presentation layer.*
+
 * the data layer should be the only layer with sql. 
 * the presentation layer should be the only layer that communicates with the end user.
+* must not use any zip files except to bundle code.
+* must present "this" (and likely any other textual document) as a pdf, markdown, html, or a format agreed upon by the instructor (not proprietary, not ms office).
 
 ## Business Rules
 "When involved in a business or even a business project, there are 3 major rules that are created to affect the way your business works. Usually, these are rules that involve employees or staff and are rules that specify what they can and cannot do. A great example of a business rule involves marriages. For many companies, a manager is not allowed to marry an employee or an accountant at a company is usually not allowed to marry another accountant. In this case, the accountants are not allowed to be married because there is a more likely chance that the spouses can change financial information and then cover for one another. These rules are intended to prevent disruption in a company or business.
@@ -84,8 +81,6 @@ Additional requirements:
 Business Rules are used every day to define entities, attributes, relationships and constraints. Usually though they are used for the organization that stores or uses data to be an explanation of a policy, procedure, or principle. The data can be considered significant only after business rules are defined, without them it’s just records, but to a business they are the characteristics that are defined and seen by the company. Business Rules help employees focus on and implement the actions within the organizations environment. Some things to think about when creating business rules are to keep them simple, easy to understand, keep them broad so that everyone can have a similar interpretation. To be considered true, business rules must be in writing and kept up to date.
 
 Identifying Business Rules
-
-
 Identifying and documenting business rules are very important to the database design. Business rules allow the creator to develop relationship participation rules and constraints and to create a correct data model. They also allow the creators to understand business processes, and the nature, role and scope of the data. They are a communication tool between users and creators, and they also help standardize the company’s view of the data. It is important to keep in mind that some business rules cannot be modeled. Business Rules give the proper classification of entities, attributes, relationships, and constraints. Sources of business rules are managers, policy makers, department managers, written documentation, procedures, standards, operation manuals, and interviews with end users. Our textbook describes that as a general user the noun in a Business Rule will translate into an entity in the model and a verb (active or passive) associating nouns will translate into a relationship among the entities. Consider that business rules are bidirectional. The textbook also mentions that there are two questions to ask to properly identify Business Rules, how many instances of B are related to one instance of A? How many instances of A are related to one instance of B?
 
 
