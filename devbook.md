@@ -77,7 +77,9 @@ The project must:
 
 11. **Be designed with cognizance of potential regulatory issues:**
 
-    *"Users can filter search results by private, public, or both, along with fuel type, payment type, and owner type, via selection dropdowns or a similar preset list of options."* Regulations potentially interfere with the usage of our application if we ignore which stations are designated "private" versus "public"; we'll make sure to take those into account and allow the user to follow legal regulations for station availability rather than accidentally trespassing.
+    >"Users can filter search results by private, public, or both, along with fuel type, payment type, and owner type, via selection dropdowns or a similar preset list of options."
+    
+    Regulations could interfere with the usage of our application if we ignore which stations are designated "private" versus "public"; we'll make sure to take those into account and allow users to follow legal regulations for station availability rather than accidentally trespassing.
 
 **Additional requirements:**
 * pictures should be presented in the pdf or in separate files readable by the instruc-tor (not proprietary, not visio or bmp). We will expect to use **png** format.
