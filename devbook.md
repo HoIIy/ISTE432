@@ -106,21 +106,21 @@ Professor ->->->->->teaches->->->->->Class"
 
 ## Timeline
 **Assuming deadlines remain consistently on Sunday nights:**
-~~M1 - DONE~~```
+> ~~M1 - DONE~~
 M2 - 10/1 (plan out design, and design patterns)
 M3 - 10/8 (plan out/revise layers)
 M4 - 10/22 (plan out/revise exception handling)
 M5 - 11/5 (refactoring)
 M6 - 11/19 (testing)
 M7 - 11/26 (packaging) (might adjust for thanksgiving break?)
-Final code: 12/9```
+Final code: 12/9
 
 **Unofficial deadlines:**
-```10/8  - be finished with all of our planning, complete with diagrams and class pseudocode.
+> 10/8  - be finished with all of our planning, complete with diagrams and class pseudocode.
 10/22 - have a working product that can fetch data, display it, and filter that display based on parameters.
 10/31 - have a working product with the trimmings added (user accounts, entering new stations, favoriting stations, and blacklisting stations.)
 11/15 - have packaging, testing, and deployment details situated. Have the project online and fully functional.
-After through the end of the semester: refactoring party.```
+After through the end of the semester: refactoring party.
 
 ## Layering
 * __Daya Layer__ - Likely to be JSON obtained from data sources, MySQL data obtained from a database, and classes that read the data in/out and abstract it to be able to work with it. The raw information, essentially, and ferrying it between external sources and internal operations. May return errors to the business layer instead of data.
