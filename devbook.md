@@ -13,16 +13,20 @@ However, we do have roles that team members are individually responsible for unl
 
 * __Document Writer__ - __*Holly*__ - responsible for the non-code documents with the project, especially during the planning process. Still works together with other members on the composition of those documents, but accounts for file formatting, proofreading, and overall quality checking of written submissions. May write more than 1/3 of the content too.
 
-* __Application Designer__ - ? - responsible for the design of the program, especially during the planning process; still works with the other members on the composition of the program and discussion about the merit of the design choices, but accounts for diagrams, rough-draft explanations of the application design, being able to articulate the reasoning behind choices, ultimate choice of design pattern, and overall quality checking of the chosen design. Responsible for more than 1/3 of the input and brainstorming, too.
+* __Application Designer__ - __*Maggie*__ - responsible for the design of the program, especially during the planning process; still works with the other members on the composition of the program and discussion about the merit of the design choices, but accounts for diagrams, rough-draft explanations of the application design, being able to articulate the reasoning behind choices, ultimate choice of design pattern, and overall quality checking of the chosen design. Responsible for more than 1/3 of the input and brainstorming, too.
 
-* __~~code monkey~~ ~~script slave~~ Application Programmer(s)__ - ?/? - responsible for the creation of the program...of course not entirely; the role should be shared by two members volunteering to do more than 1/3 of the actual coding process to allow the third to focus on the incidental requirements, refactoring, testing, etc. Application programmers are responsible for being able to articulate coding choices and what the produced code does on a step-by-step level, especially any deviations from the original design plan, along with ensuring that the third person is staying current with their understanding of the product.
+* __Application Programmer(s)__ - __*Holly*__/__*Maggie*__ - responsible for the creation of the program...of course not entirely; the role should be shared by two members volunteering to do more than 1/3 of the actual coding process to allow the third to focus on the incidental requirements, refactoring, testing, etc. Application programmers are responsible for being able to articulate coding choices and what the produced code does on a step-by-step level, especially any deviations from the original design plan, along with ensuring that the third person is staying current with their understanding of the product.
 
-* __Application Tester__ - ? - responsible for testing the final creation: mainly writing unit tests and any documentation needed to accompany that. Ideally, we're planning on two application programmers and a third application tester whose job is to (preemptively and eventually) flush out bugs by doing their best to break what the others initially constructed.
+* __Application Tester__ - __*Ian*__ - responsible for testing the final creation: mainly writing unit tests and any documentation needed to accompany that. Ideally, we're planning on two application programmers and a third application tester whose job is to (preemptively and eventually) flush out bugs by doing their best to break what the others initially constructed.
 
 ## Background
 [This is the background of the problem that inspired the project or the circumstances that caused the project. You might also include in this section anything that you know about prior efforts along the same lines such as GitHub repos you might have encountered the deal with the same thing. You might also mention articles that you've read about the problem or about possible solutions to the problem.]
 
---todo
+Our project was inspired by browsing publically available data sources and thinking of uses for them that we couldn't immediately think of as being covered by another project or application. The main alternative available is the [energy.gov locator](https://energy.gov/maps/alternative-fueling-station-locator) that lacks functionality we'd like to have, like user accounts and tracking personal preferences towards stations. It comes with a [mobile app](https://itunes.apple.com/us/app/alternative-fueling-station-locator/id718577947?mt=8), but the top review is criticism from a customer who dislikes that it "defaults to Apple maps - and in a Metropolis, where there are Transits... there's no option or any way to open the destination / route in Google maps." The user also disliked that there is "no way to copy the address to paste it into Google". Another user lamented lacking "the ability to redo a search in that area (like yelp or google maps has)". Google Maps is a widely used application; I can see how this lack of capability would become unpleasant quickly.
+
+As for Githubs, there's several: [a Ruby program that uses the same API as us](https://github.com/rshakhb10/alternative-fuel-stations-locator) for the same purpose, but only allows filtering by state, zipcode, and type of fuel.
+
+[A more sophisticated alternative](https://github.com/Traci7822/alternative_fuel_stations) from Traci7822 is an application that uses AngularJS, Rails, and Socrata Open Data API; however, it suggests installing it by "clon[ing] or download[ing] the repository to your local machine, run[ning] bundle install, start[ing] a rails server and brows[ing] to to your localhost page", which is much less lightweight and portable than our planned deployment of a live website version and bundle of files that can be uploaded to any web directory.
 
 ## Project Description
 Our project is an alternative fuel station locator. It's planned to be a mobile web application that allows users to open selected locations in their Google Maps mobile application, integrated with a MySQL database to be able to store persistent data about users.
@@ -104,7 +108,7 @@ Professor ->->->->->teaches->->->->->Class"
 --todo
 
 ## Technologies Used
---todo
+Likely to be JSON for our data source and a combination of HTML, CSS, JavaScript, and jQuery that runs on a standard LAMP stack with either PHP7.1 or NodeJS for server-side development.
 
 ## Timeline
 **Assuming deadlines remain consistently on Sunday nights:**
@@ -144,9 +148,22 @@ After through the end of the semester: refactoring party.
 ## Exception Handling
 ["Please add a section identifying exceptions and categories of exceptions you expect to account for in your code. You must include examples of actual exception-handling code in this mile-=stone. No exceptions should ever be passed to the user. Almost no exceptions should ever be passed to the presentation layer. Most exceptions should be handled in an application, business, or data layer. Identifying them should also identify the kind of person who should respond to them. I have often encountered DBAs who insisted that the responsibility lay with an “application owner” and application developers who insisted that the same responsibility lay with the DBA and “application owners” who insisted that they were paying for somebody else to figure this out. When an exception is thrown, it can be handled or passed up the layers. You have to make a decision for each “try / catch” whether you want to handle the exception here or elsewhere. I am not asking for an exception handling section of the design but rather an expansion of the layered architecture descrip-tion that shows us how and where exceptions are handled."]
 
-* Where will exceptions ceased to be passed on?  
-* What is the kind of person who should respond to them?
---todo
+All Exceptions thrown by NodeJS are instances of Errors. If we decide to use PHP as our server-side workhorse, Exceptions will likely be functionally similar but syntactically different.
+
+**Potential types of Exceptions:**
+- AssertionError - one value is expected to be something else. For example, trying to evaluate JSON that's actually a null value.
+- RangeError     - an argument was not within the range or set of acceptable values for a function; an example could be the application trying to apply mathematical calculations to a radius of -1.
+- TypeError      - an argument was not an allowable type; an example could be trying to treat a string as a radius with mathematic calculations if the user is allowed to put in an invalid type of radius data.
+
+Other types of errors may be connection errors (if we can't connect to the Google Maps API, database, or other data sources), authorization errors (if we can connect to the API but have problems with our API key/can connect to the database but have problems with the database login), or system errors (servers down, user tries to navigate to a nonexistent page, etc).
+
+* **Where will exceptions ceased to be passed on?**
+
+    The application layer. At that level, exceptions will be formatted for output to the presentation layer, including generic catch-alls for unknown failures.
+    
+* **What is the kind of person who should respond to them?**
+
+    On whoever is able to fix them. Database connection errors are the responsibility of the DBA for whichever database is connected to this application; on the other hand, unknown errors that can't be resolved should volunteer the option to contact the makers of the application or whatever help system we decide to put in place before deployment.
 
 ## Performance and Refactoring
 ["Give examples of code there or coding practices there that you are doing to improve performance of your project. For projects where we identified refactoring opportunities, carry those out and all groups should include their current code with the document. The best case would be to put pointers in the document (e.g., file-names and line numbers or classnames and offsets) rather than code fragments in the document. Improve your existing code and respond to surprising instructions from management. This milestone may be particularly stressful depending on how well you have completed the previous mile-stones. The surprising instructions will test the quality of your code thus far."]
