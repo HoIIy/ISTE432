@@ -15,9 +15,9 @@ However, we do have roles that team members are individually responsible for unl
 
 * __Application Designer__ - __*Maggie*__ - responsible for the design of the program, especially during the planning process; still works with the other members on the composition of the program and discussion about the merit of the design choices, but accounts for diagrams, rough-draft explanations of the application design, being able to articulate the reasoning behind choices, ultimate choice of design pattern, and overall quality checking of the chosen design. Responsible for more than 1/3 of the input and brainstorming, too.
 
-* __Application Programmer(s)__ - __*Holly*__/__*Maggie*__ - responsible for the creation of the program...of course not entirely; the role should be shared by two members volunteering to do more than 1/3 of the actual coding process to allow the third to focus on the incidental requirements, refactoring, testing, etc. Application programmers are responsible for being able to articulate coding choices and what the produced code does on a step-by-step level, especially any deviations from the original design plan, along with ensuring that the third person is staying current with their understanding of the product.
+* __Application Programmer(s)__ - __*All*__ - responsible for the creation of the program...of course not entirely; the role should be shared by all members volunteering to do about 1/3 of the actual coding. Application programmers are responsible for being able to articulate coding choices and what the produced code does on a step-by-step level, especially any deviations from the original design plan.
 
-* __Application Tester__ - __*Ian*__ - responsible for testing the final creation: mainly writing unit tests and any documentation needed to accompany that. Ideally, we're planning on two application programmers and a third application tester whose job is to (preemptively and eventually) flush out bugs by doing their best to break what the others initially constructed.
+* __Application Tester__ - __*Ian*__ - responsible for testing the final creation: mainly writing unit tests and any documentation needed to accompany that. Ideally, we're planning on two application programmers and a third application tester whose job is to (preemptively and eventually) flush out bugs by doing their best to break what is initially constructed.
 
 ## Background
 [This is the background of the problem that inspired the project or the circumstances that caused the project. You might also include in this section anything that you know about prior efforts along the same lines such as GitHub repos you might have encountered the deal with the same thing. You might also mention articles that you've read about the problem or about possible solutions to the problem.]
@@ -105,24 +105,24 @@ Professor ->->->->->teaches->->->->->Class"]
 * GetData----generates----Map
 
 ## Technologies Used
-Likely to be JSON for our data source and a combination of HTML, CSS, JavaScript, and jQuery that runs on a standard LAMP stack with either PHP7.1 or NodeJS for server-side development.
+Likely to be JSON for our data source and a combination of HTML, CSS, JavaScript, and jQuery that runs on a standard LAMP stack.
 
 ## Timeline
 **Assuming deadlines remain consistently on Sunday nights:**
 - ~~M1 - DONE~~
-- M2 - 10/1 (plan out design, and design patterns)
-- M3 - 10/8 (plan out/revise layers)
-- M4 - 10/22 (plan out/revise exception handling)
-- M5 - 11/5 (refactoring)
-- M6 - 11/19 (testing)
-- M7 - 11/26 (packaging) (might adjust for thanksgiving break?)
+- M2 - 10/8 (plan out design, and design patterns)
+- M3 - 10/13 (plan out/revise layers)
+- M4 - 10/27 (plan out/revise exception handling)
+- M5 - 11/10 (refactoring)
+- M6 - 11/27 (testing)
+- M7 - 12/15 (packaging)
 - Final code: 12/9
 
 **Unofficial deadlines:**
 - 10/8  - be finished with all of our planning, complete with diagrams and class pseudocode.
 - 10/22 - have a working product that can fetch data, display it, and filter that display based on parameters.
 - 10/31 - have a working product with the trimmings added (user accounts, entering new stations, favoriting stations, and blacklisting stations.)
-- 11/15 - have packaging, testing, and deployment details situated. Have the project online and fully functional.
+- 11/27 - have packaging, testing, and deployment details situated. Have the project online and fully functional.
 After through the end of the semester: refactoring party.
 
 ## Layering
