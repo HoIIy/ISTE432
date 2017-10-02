@@ -92,20 +92,17 @@ The project must:
 * must present "this" (and likely any other textual document) as a pdf, markdown, html, or a format agreed upon by the instructor (not proprietary, not ms office).
 
 ## Business Rules
-"When involved in a business or even a business project, there are 3 major rules that are created to affect the way your business works. Usually, these are rules that involve employees or staff and are rules that specify what they can and cannot do. A great example of a business rule involves marriages. For many companies, a manager is not allowed to marry an employee or an accountant at a company is usually not allowed to marry another accountant. In this case, the accountants are not allowed to be married because there is a more likely chance that the spouses can change financial information and then cover for one another. These rules are intended to prevent disruption in a company or business.
-
-Business Rules are used every day to define entities, attributes, relationships and constraints. Usually though they are used for the organization that stores or uses data to be an explanation of a policy, procedure, or principle. The data can be considered significant only after business rules are defined, without them it’s just records, but to a business they are the characteristics that are defined and seen by the company. Business Rules help employees focus on and implement the actions within the organizations environment. Some things to think about when creating business rules are to keep them simple, easy to understand, keep them broad so that everyone can have a similar interpretation. To be considered true, business rules must be in writing and kept up to date.
-
-Identifying Business Rules
-Identifying and documenting business rules are very important to the database design. Business rules allow the creator to develop relationship participation rules and constraints and to create a correct data model. They also allow the creators to understand business processes, and the nature, role and scope of the data. They are a communication tool between users and creators, and they also help standardize the company’s view of the data. It is important to keep in mind that some business rules cannot be modeled. Business Rules give the proper classification of entities, attributes, relationships, and constraints. Sources of business rules are managers, policy makers, department managers, written documentation, procedures, standards, operation manuals, and interviews with end users. Our textbook describes that as a general user the noun in a Business Rule will translate into an entity in the model and a verb (active or passive) associating nouns will translate into a relationship among the entities. Consider that business rules are bidirectional. The textbook also mentions that there are two questions to ask to properly identify Business Rules, how many instances of B are related to one instance of A? How many instances of A are related to one instance of B?
+["Identifying and documenting business rules are very important to the database design. Business rules allow the creator to develop relationship participation rules and constraints and to create a correct data model. They also allow the creators to understand business processes, and the nature, role and scope of the data. They are a communication tool between users and creators, and they also help standardize the company’s view of the data. It is important to keep in mind that some business rules cannot be modeled. Business Rules give the proper classification of entities, attributes, relationships, and constraints. Sources of business rules are managers, policy makers, department managers, written documentation, procedures, standards, operation manuals, and interviews with end users. Our textbook describes that as a general user the noun in a Business Rule will translate into an entity in the model and a verb (active or passive) associating nouns will translate into a relationship among the entities. Consider that business rules are bidirectional. The textbook also mentions that there are two questions to ask to properly identify Business Rules, how many instances of B are related to one instance of A? How many instances of A are related to one instance of B?
 
 Some examples of business rules:
 Departments ------offers---------Course
 Course----------generates---------Class
-Professor ->->->->->teaches->->->->->Class"
+Professor ->->->->->teaches->->->->->Class"]
 
-*^ placeholder*
---todo
+**3 of our main business rules:**
+* Admin->manages->Stations
+* Map---displays---Stations
+* GetData----generates----Map
 
 ## Technologies Used
 Likely to be JSON for our data source and a combination of HTML, CSS, JavaScript, and jQuery that runs on a standard LAMP stack with either PHP7.1 or NodeJS for server-side development.
@@ -146,7 +143,7 @@ After through the end of the semester: refactoring party.
 * the presentation layer should be the only layer that communicates with the end user.
 
 ## Exception Handling
-["Please add a section identifying exceptions and categories of exceptions you expect to account for in your code. You must include examples of actual exception-handling code in this mile-=stone. No exceptions should ever be passed to the user. Almost no exceptions should ever be passed to the presentation layer. Most exceptions should be handled in an application, business, or data layer. Identifying them should also identify the kind of person who should respond to them. I have often encountered DBAs who insisted that the responsibility lay with an “application owner” and application developers who insisted that the same responsibility lay with the DBA and “application owners” who insisted that they were paying for somebody else to figure this out. When an exception is thrown, it can be handled or passed up the layers. You have to make a decision for each “try / catch” whether you want to handle the exception here or elsewhere. I am not asking for an exception handling section of the design but rather an expansion of the layered architecture descrip-tion that shows us how and where exceptions are handled."]
+["Please add a section identifying exceptions and categories of exceptions you expect to account for in your code. You must include examples of actual exception-handling code in this mile-stone. No exceptions should ever be passed to the user. Almost no exceptions should ever be passed to the presentation layer. Most exceptions should be handled in an application, business, or data layer. Identifying them should also identify the kind of person who should respond to them. I have often encountered DBAs who insisted that the responsibility lay with an “application owner” and application developers who insisted that the same responsibility lay with the DBA and “application owners” who insisted that they were paying for somebody else to figure this out. When an exception is thrown, it can be handled or passed up the layers. You have to make a decision for each “try / catch” whether you want to handle the exception here or elsewhere. I am not asking for an exception handling section of the design but rather an expansion of the layered architecture descrip-tion that shows us how and where exceptions are handled."]
 
 All Exceptions thrown by NodeJS are instances of Errors. If we decide to use PHP as our server-side workhorse, Exceptions will likely be functionally similar but syntactically different.
 
@@ -157,6 +154,14 @@ All Exceptions thrown by NodeJS are instances of Errors. If we decide to use PHP
 
 Other types of errors may be connection errors (if we can't connect to the Google Maps API, database, or other data sources), authorization errors (if we can connect to the API but have problems with our API key/can connect to the database but have problems with the database login), or system errors (servers down, user tries to navigate to a nonexistent page, etc).
 
+* **Example of Exception handling:**
+    try {
+        stationCity = getCity(stationNum);
+        return stationCity;
+    } catch (e) {
+        return console.error(e);
+    }
+    
 * **Where will exceptions ceased to be passed on?**
 
     The application layer. At that level, exceptions will be formatted for output to the presentation layer, including generic catch-alls for unknown failures.
