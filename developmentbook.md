@@ -4,20 +4,16 @@
 
 
 ## Team Members and Roles
-
-As our team only has three members, there will inevitably be overlap between roles; specific work will be able to be claimed by team members closer to its milestone deadline, as schedules change and availability shifts.
-
-However, we do have roles that team members are individually responsible for unless otherwise is agreed upon at a later date. One member may occupy more than one role, and roles can be formally split between members if appropriate. As team projects can be difficult to successfully organize, these roles come with the implicit understanding that individual work must be done significantly in advance before a deadline: so, in the event of illness, catastrophe, or any other inability to complete the designated work, another team member will have enough time to pick up the slack.
-
+We have three members in the group, some members may have multiple roles but all of the members will collarate on every part of the project. Every decision would be decided within the group and finalized version of part would be determined by the member with the role.
 * __Project Manager__ - __*Holly*__  - accounts for overall coordination of project, checking in with members, monitoring deadlines, and ensuring that work is steadily progressing.
 
 * __Document Writer__ - __*Holly*__ - responsible for the non-code documents with the project, especially during the planning process. Still works together with other members on the composition of those documents, but accounts for file formatting, proofreading, and overall quality checking of written submissions. May write more than 1/3 of the content too.
 
-* __Documentation Writer__ - __**__ - responsible for the code's documentation with the project: comments, headers, formatting, and help resources. Still works together with other members on the composition of those documents, but accounts for quality of them and may write more than 1/3 of the content.
+* __Documentation Writer__ - __*Maggie*__ - responsible for the code's documentation with the project: comments, headers, formatting, and help resources. Still works together with other members on the composition of those documents, but accounts for quality of them and may write more than 1/3 of the content.
 
 * __Application Designer__ - __*Maggie*__ - responsible for the design of the program, especially during the planning process; still works with the other members on the composition of the program and discussion about the merit of the design choices, but accounts for diagrams, rough-draft explanations of the application design, being able to articulate the reasoning behind choices, ultimate choice of design pattern, and overall quality checking of the chosen design. Responsible for more than 1/3 of the input and brainstorming, too.
 
-* __Application Programmer(s)__ - __*All (small team)*__ - responsible for the creation of the program...of course not entirely; the role should be shared by all members volunteering to do about 1/3 of the actual coding. Application programmers are responsible for being able to articulate coding choices and what the produced code does on a step-by-step level, especially any deviations from the original design plan.
+* __Application Programmer(s)__ - __*All (small team)*__ - responsible for the creation of the program. the role should be shared by all members volunteering to do about 1/3 of the actual coding. Application programmers are responsible for being able to articulate coding choices and what the produced code does on a step-by-step level, especially any deviations from the original design plan.
 
 * __Application Tester__ - __*Ian*__ - responsible for testing the final creation: mainly writing unit tests and any documentation needed to accompany that. Ideally, we would plan on two application programmers to each designated application tester, so the latter could preemptively and eventually flush out bugs by doing their best to break what was initially constructed, but the size of our current working team makes dividing up code between two people too potentially difficult.
 
