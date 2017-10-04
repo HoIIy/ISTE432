@@ -22,7 +22,7 @@ Our project was inspired by browsing publically available data sources and think
 
 As for Githubs, there's several: [a Ruby program that uses the same API as us](https://github.com/rshakhb10/alternative-fuel-stations-locator) for the same purpose, but only allows filtering by state, zipcode, and type of fuel.
 
-[A more sophisticated alternative](https://github.com/Traci7822/alternative_fuel_stations) from Traci7822 is an application that uses AngularJS, Rails, and Socrata Open Data API; however, it suggests installing it by "clon[ing] or download[ing] the repository to your local machine, run[ning] bundle install, start[ing] a rails server and brows[ing] to to your localhost page", which is much less lightweight and portable than our planned deployment of a live website version and bundle of files that can be uploaded to any web directory.
+[A more sophisticated alternative](https://github.com/Traci7822/alternative_fuel_stations) from Traci7822 is an application that uses AngularJS, Rails, and Socrata Open Data API; however, it suggests installing it by "cloning or downloading the repository to your local machine, running bundle install, starting a rails server and browsing to to your localhost page", which is much less lightweight and portable than our planned deployment of a live website version and bundle of files that can be uploaded to any web directory.
 
 ## Project Description
 Our project is an alternative fuel station locator. It's planned to be a mobile web application that allows users to open selected locations in their Google Maps mobile application, integrated with a MySQL database to be able to store persistent data about users.
@@ -88,26 +88,24 @@ The project must:
 * must present "this" (and likely any other textual document) as a pdf, markdown, html, or a format agreed upon by the instructor (not proprietary, not ms office).
 
 ## Business Rules
-
-
-**3 of our main business rules:**
-* Admin->manages->Stations
-* Map---displays---Stations
-* GetData----generates----Map
+* Users could not use this for business purposes
+* Protecting user's private information confidentially 
+* Only administrtors could mangage and approve information about stations
+* Map would be display public stations for general uses
 
 ## Technologies Used
-Likely to be JSON for our data source and a combination of HTML, CSS, JavaScript, and jQuery that runs on a standard LAMP stack.
+* JSON is our data source. 
+* For the web application, we will use HTML, CSS, JavaScrip and jQuery accordingly. 
 
 ## Timeline
-**Assuming deadlines remain consistently on Sunday nights:**
-- ~~M1 - DONE~~
-- M2 - 10/8 (plan out design, and design patterns)
-- M3 - 10/13 (plan out/revise layers)
-- M4 - 10/27 (plan out/revise exception handling)
-- M5 - 11/10 (refactoring)
-- M6 - 11/27 (testing)
-- M7 - 12/15 (packaging)
-- Final code: 12/9
+**Milestones:** 
+1. Requirements - 9/15 - Plan all general requirements and purposes for the project
+2. Design and Design Patterns - 10/8 - Plan out design, and design patterns
+3. Layering - 10/13 - Plan out and revise layers
+4. Exception Handling - 10/27 - Plan out and revise exception handling
+5. Performance and Refactoring - 11/10 
+6. Testing - 11/27 
+7. Deployment and Packaging - 12/15 
 
 **Unofficial deadlines:**
 - 10/8  - be finished with all of our planning, complete with diagrams and class pseudocode.
@@ -115,9 +113,10 @@ Likely to be JSON for our data source and a combination of HTML, CSS, JavaScript
 - 10/31 - have a working product with the trimmings added (user accounts, entering new stations, favoriting stations, and blacklisting stations.)
 - 11/27 - have packaging, testing, and deployment details situated. Have the project online and fully functional.
 After through the end of the semester: refactoring party.
+- 12/9: -  have final code finished and submitted 
 
 ## Layering
-* __Daya Layer__ - Likely to be JSON obtained from data sources, MySQL data obtained from a database, and classes that read the data in/out and abstract it to be able to work with it. The raw information, essentially, and ferrying it between external sources and internal operations. May return errors to the business layer instead of data.
+* __Daya Layer__ - JSON obtained from data sources, MySQL data obtained from a database, and classes that read the data in/out and abstract it to be able to work with it. The raw information, essentially, and ferrying it between external sources and internal operations. May return errors to the business layer instead of data.
 
 * __Business Layer__ - Classes that work with that data layer: modifying, fetching, deleting, or asking it to add data, for example, along with error handling for those operations. Universal business logic that could be reused in any other application that works with the same data.
 
@@ -134,7 +133,7 @@ After through the end of the semester: refactoring party.
 * the presentation layer should be the only layer that communicates with the end user.
 
 ## Exception Handling
-All Exceptions thrown by NodeJS are instances of Errors. If we decide to use PHP as our server-side workhorse, Exceptions will likely be functionally similar but syntactically different.
+All Exceptions thrown by NodeJS are instances of Errors. 
 
 **Potential types of Exceptions:**
 - AssertionError - one value is expected to be something else. For example, trying to evaluate JSON that's actually a null value.
@@ -160,14 +159,10 @@ Other types of errors may be connection errors (if we can't connect to the Googl
     On whoever is able to fix them. Database connection errors are the responsibility of the DBA for whichever database is connected to this application; on the other hand, unknown errors that can't be resolved should volunteer the option to contact the makers of the application or whatever help system we decide to put in place before deployment.
 
 ## Performance and Refactoring
-
-
-**N/A on 9/30. (no code yet.)**
+[More information would be listed after refactoring the project]
 
 ## Testing
-
-**N/A on 9/30. (no code yet.)**
+[More information would be listed after testing the project]
 
 ## Deployment and Packaging
-
-**Mostly N/A on 9/30. (no code yet.)** However, since we know we're using Github, we'll probably point to the location like that in the end. I also plan to host the application online, so I can host a help wiki with it, maybe? I saw that work really well in a past class's team projects.
+* This project is public in Github.
