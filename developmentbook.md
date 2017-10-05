@@ -88,14 +88,14 @@ The project must:
 * must present "this" (and likely any other textual document) as a pdf, markdown, html, or a format agreed upon by the instructor (not proprietary, not ms office).
 
 ## Business Rules
-* Users could not use this for business purposes
-* Protecting user's private information confidentially 
-* Only administrtors could mangage and approve information about stations
-* Map would be display public stations for general uses
+* Users could not use this for business purposes.
+* Protecting user's private information confidentially.
+* Only administrators could mangage and approve information about stations.
+* Map would be display public stations for general uses.
 
 ## Technologies Used
 * JSON is our data source. 
-* For the web application, we will use HTML, CSS, JavaScrip and jQuery accordingly. 
+* For the web application, we will use HTML, CSS, JavaScript and jQuery accordingly for the front end, with PHP for our server-side code. 
 
 ## Timeline
 **Milestones:** 
@@ -133,7 +133,7 @@ After through the end of the semester: refactoring party.
 * the presentation layer should be the only layer that communicates with the end user.
 
 ## Exception Handling
-All Exceptions thrown by NodeJS are instances of Errors. 
+All Exceptions thrown by PHP extend Exception.
 
 **Potential types of Exceptions:**
 - AssertionError - one value is expected to be something else. For example, trying to evaluate JSON that's actually a null value.
