@@ -91,7 +91,7 @@ The project must:
 * must present "this" (and likely any other textual document) as a pdf, markdown, html, or a format agreed upon by the instructor (not proprietary, not ms office).
 
 ## Business Rules
-* Users cannot use this application for business purposes, especially at an enterprise level.
+* Users cannot use this application for profit at an enterprise level.
 * We must protect user's private information with as much confidentiality and security as possible.
 * Only registered administrators can manage and approve information/additions about stations; we're still designing an appropriate method of identification.
 * The map would display public stations for general use and clearly-delineated private stations for allowed private use.
