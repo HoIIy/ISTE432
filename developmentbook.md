@@ -4,8 +4,8 @@
 
 
 ## Team Members and Roles
-We have three members in the group, some members may have multiple roles but all of the members will collarate on every part of the project. Every decision would be decided within the group and finalized version of part would be determined by the member with the role.
-* __Project Manager__ - __*Holly*__  - accounts for overall coordination of project, checking in with members, monitoring deadlines, and ensuring that work is steadily progressing.
+We have three members in the group, some members may have multiple roles but all of the members will collaborate on every part of the project. Every decision will be agreed upon within the group and a finalized version will be completed by the member with that role.
+* __Project Manager__ - __*Holly*__ - accounts for overall coordination of project, checking in with members, monitoring deadlines, and ensuring that work is steadily progressing.
 
 * __Document Writer__ - __*Holly*__ - responsible for the non-code documents with the project, especially during the planning process. Still works together with other members on the composition of those documents, but accounts for file formatting, proofreading, and overall quality checking of written submissions. May write more than 1/3 of the content too.
 
@@ -13,9 +13,9 @@ We have three members in the group, some members may have multiple roles but all
 
 * __Application Designer__ - __*Maggie*__ - responsible for the design of the program, especially during the planning process; still works with the other members on the composition of the program and discussion about the merit of the design choices, but accounts for diagrams, rough-draft explanations of the application design, being able to articulate the reasoning behind choices, ultimate choice of design pattern, and overall quality checking of the chosen design. Responsible for more than 1/3 of the input and brainstorming, too.
 
-* __Application Programmer(s)__ - __*All (small team)*__ - responsible for the creation of the program. the role should be shared by all members volunteering to do about 1/3 of the actual coding. Application programmers are responsible for being able to articulate coding choices and what the produced code does on a step-by-step level, especially any deviations from the original design plan.
+* __Application Programmer(s)__ - __*All (small team)*__ - responsible for the creation of the program. The role should be shared by all members volunteering to do about 1/3 of the actual coding. Application programmers are responsible for being able to articulate coding choices and what the produced code does on a step-by-step level, especially any deviations from the original design plan.
 
-* __Application Tester__ - __*Ian*__ - responsible for testing the final creation: mainly writing unit tests and any documentation needed to accompany that. Ideally, we would plan on two application programmers to each designated application tester, so the latter could preemptively and eventually flush out bugs by doing their best to break what was initially constructed, but the size of our current working team makes dividing up code between two people too potentially difficult.
+* __Application Tester__ - __*Ian*__ - responsible for testing the final creation: mainly writing unit tests and any documentation needed to accompany that. Testing will of course be done throughout the course of the project, but the cumulative tests plus final testing will be handled by the application tester.
 
 ## Background
 Our project was inspired by browsing publically available data sources and thinking of uses for them that we couldn't immediately think of as being covered by another project or application. The main alternative available is the [energy.gov locator](https://energy.gov/maps/alternative-fueling-station-locator) that lacks functionality we'd like to have, like user accounts and tracking personal preferences towards stations. It comes with a [mobile app](https://itunes.apple.com/us/app/alternative-fueling-station-locator/id718577947?mt=8), but the top review is criticism from a customer who dislikes that it "defaults to Apple maps - and in a Metropolis, where there are Transits... there's no option or any way to open the destination / route in Google maps." The user also disliked that there is "no way to copy the address to paste it into Google". Another user lamented lacking "the ability to redo a search in that area (like yelp or google maps has)". Google Maps is a widely used application; I can see how this lack of capability would become unpleasant quickly.
@@ -25,7 +25,7 @@ As for Githubs, there's several: [a Ruby program that uses the same API as us](h
 [A more sophisticated alternative](https://github.com/Traci7822/alternative_fuel_stations) from Traci7822 is an application that uses AngularJS, Rails, and Socrata Open Data API; however, it suggests installing it by "cloning or downloading the repository to your local machine, running bundle install, starting a rails server and browsing to to your localhost page", which is much less lightweight and portable than our planned deployment of a live website version and bundle of files that can be uploaded to any web directory.
 
 ## Project Description
-Our project is an alternative fuel station locator. It's planned to be a mobile web application that allows users to open selected locations in their Google Maps mobile application, integrated with a MySQL database to be able to store persistent data about users.
+Our project is an alternative fuel station locator. It's planned to be a mobile web application that allows users to open selected locations in their Google Maps mobile application, integrated with a MySQL database to be able to store persistent data about users and fuel stations.
 
 ## Project Requirements
 
@@ -41,7 +41,7 @@ The project must:
 
     > "Users can create a user account by entering an email, username, and password in the appropriate form." 
     
-    Creating a user account and attempting to make the email an emoji is an example of potential data integrity issues with this project. Or designing the database column 'name' to be 20 chars long but accepting a 25 char username at the application level and attempting to insert it anyways.
+    Creating a user account and attempting to make the email with improper formatting is an example of potential data integrity issues with this project. Or designing the database column 'name' to be 20 chars long but accepting a 25 char username at the application level and attempting to insert it anyways.
 
 3. **Be amenable to the specification and use of design patterns:**
 
@@ -89,13 +89,15 @@ The project must:
 
 ## Business Rules
 * Users could not use this for business purposes.
-* Protecting user's private information confidentially.
-* Only administrators could mangage and approve information about stations.
+* Protect user's private information confidentially.
+* Only administrators could mangage and approve information/additions about stations.
 * Map would be display public stations for general uses.
 
 ## Technologies Used
 * JSON is our data source. 
-* For the web application, we will use HTML, CSS, JavaScript and jQuery accordingly for the front end, with PHP for our server-side code. 
+* For the web application, we will use HTML, CSS, JavaScript and jQuery accordingly for the front end, with PHP for our server-side code.
+* [Vue.js](https://vuejs.org/) will be used to create the user interface.
+* [Jest](https://facebook.github.io/jest/) will be used for unit testing JavaScript
 
 ## Timeline
 **Milestones:** 
@@ -116,7 +118,7 @@ After through the end of the semester: refactoring party.
 - 12/9: -  have final code finished and submitted 
 
 ## Layering
-* __Daya Layer__ - JSON obtained from data sources, MySQL data obtained from a database, and classes that read the data in/out and abstract it to be able to work with it. The raw information, essentially, and ferrying it between external sources and internal operations. May return errors to the business layer instead of data.
+* __Daya Layer__ - JSON obtained from data sources, MySQL to obtain data from a database, classes that read the data in/out and abstract it to be able to work with it. The raw information, essentially, and ferrying it between external sources and internal operations. May return errors to the business layer instead of data.
 
 * __Business Layer__ - Classes that work with that data layer: modifying, fetching, deleting, or asking it to add data, for example, along with error handling for those operations. Universal business logic that could be reused in any other application that works with the same data.
 
@@ -133,30 +135,35 @@ After through the end of the semester: refactoring party.
 * the presentation layer should be the only layer that communicates with the end user.
 
 ## Exception Handling
-All Exceptions thrown by PHP extend Exception.
+All php and JavaScript errors will be accounted for and handled. No fatal exceptions will be presented to the user or be allowed to hinder the user experience.
 
 **Potential types of Exceptions:**
-- AssertionError - one value is expected to be something else. For example, trying to evaluate JSON that's actually a null value.
-- RangeError     - an argument was not within the range or set of acceptable values for a function; an example could be the application trying to apply mathematical calculations to a radius of -1.
-- TypeError      - an argument was not an allowable type; an example could be trying to treat a string as a radius with mathematic calculations if the user is allowed to put in an invalid type of radius data.
+- AssertionError  - one value is expected to be something else. For example, trying to evaluate JSON that's actually a null value. Along with this error, JavaScript JSON parse errors will also have to be handled.
+- RangeError      - an argument was not within the range or set of acceptable values for a function; an example could be the application trying to apply mathematical calculations to a radius of -1.
+- TypeError       - an argument was not an allowable type; an example could be trying to treat a string as a radius with mathematic calculations if the user is allowed to put in an invalid type of radius data.
+- Undefined Error - These must be avoided as we cannot have unexpected data or try to use unassigned variables.
 
 Other types of errors may be connection errors (if we can't connect to the Google Maps API, database, or other data sources), authorization errors (if we can connect to the API but have problems with our API key/can connect to the database but have problems with the database login), or system errors (servers down, user tries to navigate to a nonexistent page, etc).
 
 * **Example of Exception handling:**
+    ```
     try {
         stationCity = getCity(stationNum);
         return stationCity;
     } catch (e) {
         return console.error(e);
     }
+    ```
     
-* **Where will exceptions ceased to be passed on?**
+    For JavaScript errors, we will catch any exceptions in the web browser console, then correct them so that they do not occur.
+    
+* **In what layer will the back-end exceptions stop?**
 
     The application layer. At that level, exceptions will be formatted for output to the presentation layer, including generic catch-alls for unknown failures.
     
-* **What is the kind of person who should respond to them?**
+* **Who should respond to exceptions and errors?**
 
-    On whoever is able to fix them. Database connection errors are the responsibility of the DBA for whichever database is connected to this application; on the other hand, unknown errors that can't be resolved should volunteer the option to contact the makers of the application or whatever help system we decide to put in place before deployment.
+    Whoever is able to fix them. Database connection errors are the responsibility of the DBA for whichever database is connected to this application; on the other hand, for unknown errors that can't be resolved, contacts to the makers of the application will be available or whatever help system we decide to put in place before deployment.
 
 ## Performance and Refactoring
 [More information would be listed after refactoring the project]
