@@ -5,6 +5,9 @@
 
 ## Team Members and Roles
 We have three members in the group, some members may have multiple roles but all of the members will collaborate on every part of the project. Every decision will be agreed upon within the group and a finalized version will be completed by the member with that role.
+
+As team projects can be difficult to successfully organize, these roles come with the implicit understanding that individual work must be done significantly in advance before a deadline: so, in the event of illness, catastrophe, or any other inability to complete the designated work, another team member will have enough time to pick up the slack.
+
 * __Project Manager__ - __*Holly*__ - accounts for overall coordination of project, checking in with members, monitoring deadlines, and ensuring that work is steadily progressing.
 
 * __Document Writer__ - __*Holly*__ - responsible for the non-code documents with the project, especially during the planning process. Still works together with other members on the composition of those documents, but accounts for file formatting, proofreading, and overall quality checking of written submissions. May write more than 1/3 of the content too.
@@ -88,10 +91,10 @@ The project must:
 * must present "this" (and likely any other textual document) as a pdf, markdown, html, or a format agreed upon by the instructor (not proprietary, not ms office).
 
 ## Business Rules
-* Users could not use this for business purposes.
-* Protect user's private information confidentially.
-* Only administrators could mangage and approve information/additions about stations.
-* Map would be display public stations for general uses.
+* Users cannot use this application for business purposes, especially at an enterprise level.
+* We must protect user's private information with as much confidentiality and security as possible.
+* Only registered administrators can manage and approve information/additions about stations; we're still designing an appropriate method of identification.
+* The map would display public stations for general use and clearly-delineated private stations for allowed private use.
 
 ## Technologies Used
 * JSON is our data source. 
@@ -172,4 +175,4 @@ Other types of errors may be connection errors (if we can't connect to the Googl
 [More information would be listed after testing the project]
 
 ## Deployment and Packaging
-* This project is public in Github.
+* This project is public in Github. We will include instructions for cloning it or downloading it, along with other potential additional deployment options like a hosted live version.
