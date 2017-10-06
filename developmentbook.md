@@ -1,4 +1,4 @@
-#### Milestone 2 - Development Book (September 21, 2017)
+#### Milestone 2 - Development Book (October 6, 2017)
 #### By Maggie Jin, Holly Borrino, and Ian Kitchen 
 
 
