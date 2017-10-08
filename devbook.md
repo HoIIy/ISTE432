@@ -121,7 +121,7 @@ After through the end of the semester: refactoring party.
 - 12/9: -  have final code finished and submitted 
 
 ## Layering
-* __Daya Layer__ - JSON obtained from data sources, MySQL to obtain data from a database, classes that read the data in/out and abstract it to be able to work with it. The raw information, essentially, and ferrying it between external sources and internal operations. May return errors to the business layer instead of data.
+* __Data Layer__ - JSON obtained from data sources, MySQL to obtain data from a database, classes that read the data in/out and abstract it to be able to work with it. The raw information, essentially, and ferrying it between external sources and internal operations. May return errors to the business layer instead of data.
 
 * __Business Layer__ - Classes that work with that data layer: modifying, fetching, deleting, or asking it to add data, for example, along with error handling for those operations. Universal business logic that could be reused in any other application that works with the same data.
 
