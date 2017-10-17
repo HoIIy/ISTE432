@@ -133,8 +133,12 @@ After through the end of the semester: refactoring party.
   * __Log__: Contains functions for custom logging. Examples of logs could be errors that occur, additions/modifications/deletions to fuel stations/users, bad authentication attempts, etc.
 
 * __Application Layer__ - Classes that work with the business layer: directing it. The application layer will be application-specific business logic that works with that data on the level of our application - receiving a request for data from the user (who's interacted with the presentation layer) then asking the business layer to fetch appropriate data, which asks the data layer for that data and passes it back up. Contains error handling. If we wanted to change what our application does, we would change this.
-
-* __Presentation Layer__ - This is the layer that faces the user, takes actions from the user, passes requests to the application layer, and accepts output from the application layer to display to the user.
+  *__Map__: This class has functions to get the map with users request.
+  *__List__: This class has functions to get all the stations that follows users request. And it will handling all errors that might have with the data.
+  
+* __Presentation Layer__ - This is the layer that faces the user, takes actions from the user, passes requests to the application layer, and accepts output from the application layer to display to the user. Here are the classes that work with application layer:
+  *__Output__: This class has functions to print out informations that associated with application layer.
+  
 
 **Additional layering requirements:**
 * In the layered architecture, each layer sends to only one other layer and receives from only one other layer. There should not be a separate infrastructure for communicating between all layers, because they don’t all communicate. 
