@@ -121,16 +121,21 @@ After through the end of the semester: refactoring party.
 - 12/9: -  have final code finished and submitted 
 
 ## Layering
-* __Data Layer__ - JSON obtained from data sources, MySQL to obtain data from a database, classes that read the data in/out and abstract it to be able to work with it. The raw information, essentially, and ferrying it between external sources and internal operations. May return errors to the business layer instead of data.
+* __Data Layer__ - This will contain JSON obtained from data sources, MySQL to obtain data from a database, and functions that read/modify/delete the data in/out, and abstract it to be able to work with it. The raw information, essentially, and ferrying it between the database and internal operations. May return errors to the business layer instead of data.
 
-* __Business Layer__ - Classes that work with that data layer: modifying, fetching, deleting, or asking it to add data, for example, along with error handling for those operations. Universal business logic that could be reused in any other application that works with the same data.
+* __Business Layer__ - The application layer will direct it, and it will direct the data layer. Here are classes that work with the data layer, communication channels to the application layer, and provide server side security and validation:
+  * __FuelStations__: This class has functions for retrieving fuel stations, and sending requests to modify existing stations and delete or add new stations from the data layer. This class will return fuel station objects, cache results as objects for speedier, subsequent searches,  or useful errors for data inconsistencies, no data results, incorrect input formatting, etc.
+  * __Users__: Contains functions for sending requests to retrieve, modify, or add user accounts and data associated with those accounts to the data layer. Also responsible for enforcing role based permissions and security around each account. Will return user objects or useful error codes if any permissions are violated, input formatting errors, or security errors are thrown.
+  * __Communication__: Has functions that are responsible for the message interface between this layer and the application layer. Functions will be used for filtering and returning only the correct results requested, errors pertaining to invalid user input, or any other error returned from the other classes and data layer.
+  * __Exceptions__: Contains the definitions, behaviors, and objects for errors that can occur.
+  * __Log__: Contains functions for custom logging. Examples of logs could be errors that occur, additions/modifications/deletions to fuel stations/users, bad authentication attempts, etc.
 
 * __Application Layer__ - Classes that work with the business layer: directing it. The application layer will be application-specific business logic that works with that data on the level of our application - receiving a request for data from the user (who's interacted with the presentation layer) then asking the business layer to fetch appropriate data, which asks the data layer for that data and passes it back up. Contains error handling. If we wanted to change what our application does, we would change this.
 
-* __Presentation Layer__ - A web application that uses a combination of HTML, CSS, JavaScript, jQuery, and either NodeJS or PHP, depending on which we decide on shortly. This is the layer that faces the user, takes actions from the user, passes requests to the application layer, and accepts output from the application layer to display to the user.
+* __Presentation Layer__ - This is the layer that faces the user, takes actions from the user, passes requests to the application layer, and accepts output from the application layer to display to the user.
 
 **Additional layering requirements:**
-* in the tiered architecture, each layer sends to only one other layer and receives from only one other layer. There should not be a separate infrastructure for communicating between all layers, because they don’t all communicate. 
+* In the layered architecture, each layer sends to only one other layer and receives from only one other layer. There should not be a separate infrastructure for communicating between all layers, because they don’t all communicate. 
 
     *data layer->business layer->application layer->presentation layer.*
     
