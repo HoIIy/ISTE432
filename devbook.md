@@ -95,6 +95,8 @@ The project must:
 * We must protect user's private information with as much confidentiality and security as possible.
 * Only registered administrators can manage and approve information/additions about stations; we're still designing an appropriate method of identification.
 * The map would display public stations for general use and clearly-delineated private stations for allowed private use.
+* Limit search results to a reasonable distance. Example: Drivers will most likely not be going 400 miles on one tank, or looking for stations very far away from a location. Therefore the max radius for search will be 100 miles.
+* New fuel stations cannot be added without approval or multiple requests to add the same station occur.
 
 ## Technologies Used
 * JSON is our data source. 
