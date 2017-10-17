@@ -137,7 +137,7 @@ After through the end of the semester: refactoring party.
   * __List__: This class has functions to get all the stations that follows users request. And it will handling all errors that might have with the data.
   
 * __Presentation Layer__ - This is the layer that faces the user, takes actions from the user, passes requests to the application layer, and accepts output from the application layer to display to the user. Here are the classes that work with application layer:
-  *__Output__: This class has functions to print out informations that associated with application layer.
+  * __Output__: This class has functions to print out informations that associated with application layer.
   
 
 **Additional layering requirements:**
