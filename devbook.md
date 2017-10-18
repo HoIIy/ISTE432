@@ -133,11 +133,13 @@ After through the end of the semester: refactoring party.
   * __Log__: Contains functions for custom logging. Examples of logs could be errors that occur, additions/modifications/deletions to fuel stations/users, bad authentication attempts, etc.
 
 * __Application Layer__ - Classes that work with the business layer: directing it. The application layer will be application-specific business logic that works with that data on the level of our application - receiving a request for data from the user (who's interacted with the presentation layer) then asking the business layer to fetch appropriate data, which asks the data layer for that data and passes it back up. Contains error handling. If we wanted to change what our application does, we would change this.
-  * __Map__: This class has functions to get the map with users request.
-  * __List__: This class has functions to get all the stations that follows users request. And it will handling all errors that might have with the data.
+  * __Map__: This class has functions to populate the map with fuel stations based on user's request.
+  * __List__: This class has functions to get all the stations and sort them into a list ordered by fuel stations closest to requested location and based on user's filters.
+  * __Errors__: If there are any errors/exceptions that reach this layer, this class has functions that will format the errors to be useful to the user.
   
-* __Presentation Layer__ - This is the layer that faces the user, takes actions from the user, passes requests to the application layer, and accepts output from the application layer to display to the user. Here are the classes that work with application layer:
-  * __Output__: This class has functions to print out informations that associated with application layer.
+* __Presentation Layer__ - This is the layer that faces the user, takes actions from the user, passes requests to the application layer, and accepts output from the application layer to display to the user. There are no classes per se, but there are other aspects that can be defined:
+  * __Views__: There will be many views associated with this layer. There will be an initial search screen where users can query for specific fuel stations, a list view of returned stations, a map view displaying pins on where the stations are geographically, user creation screens, and user account screens.
+  * __User Inputs__: Searches will not contain user typed text, there will be checkboxes, dropdowns, and other UI elements for conducting queries, and inputs for user account information.
   
 
 **Additional layering requirements:**
