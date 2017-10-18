@@ -45,14 +45,14 @@ The project must:
     > "Users can create a user account by entering an email, username, and password in the appropriate form." 
     
     Creating a user account and attempting to make the email with improper formatting is an example of potential data integrity issues with this project. Or designing the database column 'name' to be 20 chars long but accepting a 25 char username at the application level and attempting to insert it anyways.
-
-3. **Be amenable to the specification and use of design patterns:**
-
-    We plan to use an Observer pattern on the application level, with a Subject/Observable that listens for requests to update, notifies Observers about them (i.e. user requests for data), then accepts new state and displays it.
-
-4. **Use a layered architecture:**
+    
+3. **Use a layered architecture:**
 
     Our application will have separate data, business, application, and presentation layers. See the appropriate subsection of this document for more information on each layer's role.
+
+4. **Be amenable to the specification and use of design patterns:**
+
+    We plan to use an MVC pattern across the layers. Our model will be based around the data layer as it represents what our project is based on; fuel stations and the users that need to find stations. Our controller will be a combination of the business and application layers. These manipulate, control, validate, and filter the data to make it readable or to format it correctly for storage such as returning a list of searched fuel stations. Our view is the presentation layer, which will provide a UI for interacting with fuel stations and user accounts.
 
 5. **Provide exception handling in a layered manner:**
 
