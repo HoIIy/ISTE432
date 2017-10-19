@@ -139,7 +139,7 @@ After through the end of the semester: refactoring party.
   
 * __Presentation Layer__ - This is the layer that faces the user, takes actions from the user, passes requests to the application layer, and accepts output from the application layer to display to the user. There are no classes per se, but there are other aspects that can be defined:
   * __Views__: There will be many views associated with this layer. There will be an initial search screen where users can query for specific fuel stations, a list view of returned stations, a map view displaying pins on where the stations are geographically, user creation screens, and user account screens.
-  * __User Inputs__: Searches will not contain user typed text, there will be checkboxes, dropdowns, and other UI elements for conducting queries, and inputs for user account information.
+  * __User Inputs__: Searches for fuel stations will not contain user typed text, there will be checkboxes, dropdowns, and other UI elements for conducting queries. The only user typed text will be inputs for user account information. There will also be buttons for users to save favorite fuel stations for later use.
   
 
 **Additional layering requirements:**
