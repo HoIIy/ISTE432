@@ -159,27 +159,32 @@ All php and JavaScript errors will be accounted for and handled. No fatal except
 - TypeError       - an argument was not an allowable type; an example could be trying to treat a string as a radius with mathematic calculations if the user is allowed to put in an invalid type of radius data.
 - Undefined Error - These must be avoided as we cannot have unexpected data or try to use unassigned variables.
 
-Other types of errors may be connection errors (if we can't connect to the Google Maps API, database, or other data sources), authorization errors (if we can connect to the API but have problems with our API key/can connect to the database but have problems with the database login), or system errors (servers down, user tries to navigate to a nonexistent page, etc).
+Other errors for tools being used: 
+* Google Maps API - there are a number of errors that can come for the google maps api. Here's a [link](https://developers.google.com/maps/documentation/javascript/error-messages) to all of them.
+* Database connection/other errors - In order to handle database errors successfully, we will use PDO so that we can use a try/catch block. 
+* Errors concerning the data source (API) - The documentation for the API to access the data has detailed error descriptions of possible errors that can occur for a certain call. For example: A request to GET all stations only has only one possible error of 422 ([unprocessable entity](https://developer.nrel.gov/docs/transportation/alt-fuel-stations-v1/all/#errors))
+* System errors - Servers could go down, user tries to navigate to a nonexistent page, etc. Ideally, some sort of notification system will be put in place to monitor the activity and accessibility of the server. Since we are not hosting the app on our own servers, however, most of the system side errors will be out of our control.
 
-* **Example of Exception handling:**
-    ```
+**Example of Exception handling:**
+    
+
     try {
         stationCity = getCity(stationNum);
         return stationCity;
     } catch (e) {
         return console.error(e);
     }
-    ```
     
-    For JavaScript errors, we will catch any exceptions in the web browser console, then correct them so that they do not occur.
     
-* **In what layer will the back-end exceptions stop?**
+For JavaScript errors, we will catch any exceptions in the web browser console, then correct them so that they do not occur.
+    
+**In what layer will the back-end exceptions stop?**
 
-    The application layer. At that level, exceptions will be formatted for output to the presentation layer, including generic catch-alls for unknown failures.
+The application layer. At that level, exceptions will be formatted for output to the presentation layer, including generic catch-alls for unknown failures.
     
-* **Who should respond to exceptions and errors?**
+**Who should respond to exceptions and errors?**
 
-    Whoever is able to fix them. Database connection errors are the responsibility of the DBA for whichever database is connected to this application; on the other hand, for unknown errors that can't be resolved, contacts to the makers of the application will be available or whatever help system we decide to put in place before deployment.
+Whoever is able to fix them. Database connection errors are the responsibility of the DBA for whichever database is connected to this application; on the other hand, for unknown errors that can't be resolved, contacts to the makers of the application will be available or whatever help system we decide to put in place before deployment.
 
 ## Performance and Refactoring
 [More information would be listed after refactoring the project]
