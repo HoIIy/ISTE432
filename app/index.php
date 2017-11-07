@@ -7,6 +7,9 @@
 
     <!-- Styles -->
     <link href="styles/style.css" rel="stylesheet">
+    
+    <!-- Vue.js -->
+    <script type="text/javascript" src="vendor/vue.min.js"></script>
 </head>
 <body>
 
@@ -16,9 +19,6 @@
 
     <!-- jQuery (may not need this with Vue) -->
     <script type="text/javascript" src="vendor/jquery-3.2.1.min.js"></script>
-
-    <!-- Vue.js -->
-    <script type="text/javascript" src="vendor/vue.min.js"></script>
 
     <!-- Temp for testing API call -->
     <script type="text/javascript">
