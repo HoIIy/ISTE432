@@ -1,3 +1,16 @@
-body {
-  font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+html, body {
+    font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+}
+
+#map {
+    height: 50%;
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
 }
