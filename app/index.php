@@ -21,6 +21,7 @@
 
         <div class="w3-container">
             <h1>Alternative Fuel Station Finder</h1>
+            <i class=""></i>
         </div>
 
         <!-- The Grid -->
@@ -43,11 +44,14 @@
                         <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-flash"></i></div>
                         <div class="w3-rest">
                             <select class="w3-select" name="fuel">
-                              <!-- Should progmatically fill this out on page load -->
-                              <option value="0">All Fuels</option>
-                              <option value="1">Option 1</option>
-                              <option value="2">Option 2</option>
-                              <option value="3">Option 3</option>
+                              <option value="all">All Fuels</option>
+                              <option value="BD">Biodiesel (B20 and above)</option>
+                              <option value="CNG">Compressed Natural Gas</option>
+                              <option value="ELEC">Electric</option>
+                              <option value="E85">Ethanol (E85)</option>
+                              <option value="HY">Hydrogen</option>
+                              <option value="LPG">Liquefied Petroleum Gas (Propane)</option>
+                              <option value="LNG">Liquefied Natural Gas (LNG)</option>
                             </select> 
                         </div>
                     </div>
@@ -56,11 +60,12 @@
                         <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
                         <div class="w3-rest">
                           <select class="w3-select" name="owner">
-                              <!-- Should progmatically fill this out on page load -->
-                              <option value="0">All Owner Types</option>
-                              <option value="1">Option 1</option>
-                              <option value="2">Option 2</option>
-                              <option value="3">Option 3</option>
+                              <option value="all" selected="selected">All Owner Types</option>
+                              <option value="P">Private</option>
+                              <option value="FG">Federal</option>
+                              <option value="SG">State</option>
+                              <option value="LG">Local</option>
+                              <option value="T">Utility</option>
                             </select> 
                         </div>
                     </div>
@@ -69,11 +74,30 @@
                         <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-dollar"></i></div>
                         <div class="w3-rest">
                           <select class="w3-select" name="payment">
-                              <!-- Should progmatically fill this out on page load -->
-                              <option value="0">All Payment Types</option>
-                              <option value="1">Option 1</option>
-                              <option value="2">Option 2</option>
-                              <option value="3">Option 3</option>
+                              <option value="all" selected="selected">All Payment Types</option>
+                              <option value="A">American Express</option>
+                              <option value="Debit">Debit</option>
+                              <option value="D">Discover</option>
+                              <option value="M">MasterCard</option>
+                              <option value="V">Visa</option>
+                              <option value="Cash">Cash</option>
+                              <option value="Checks">Check</option>
+                              <option value="CleanEnergy">Clean Energy</option>
+                              <option value="Comdata">Comdata</option>
+                              <option value="CFN">Commercial Fueling Network</option>
+                              <option value="EFS">EFS</option>
+                              <option value="FleetOne">Fleet One</option>
+                              <option value="FuelMan">Fuelman</option>
+                              <option value="GasCard">GASCARD</option>
+                              <option value="PacificPride">Pacific Pride</option>
+                              <option value="PHH">PHH</option>
+                              <option value="Proprietor">Proprietor Fleet Card</option>
+                              <option value="Speedway">Speedway</option>
+                              <option value="TCH">TCH</option>
+                              <option value="Tchek">T-Chek T-Card</option>
+                              <option value="Trillium">Trillium</option>
+                              <option value="Voyager">Voyager</option>
+                              <option value="Wright_Exp">WEX</option>
                             </select> 
                         </div>
                     </div>
@@ -82,7 +106,7 @@
                         <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-location-arrow"></i></div>
                         <div class="w3-rest">
                           <label>Distance in miles</label>
-                          <input class="w3-input w3-border" name="distance" type="number" placeholder="5">
+                          <input class="w3-input w3-border" name="distance" type="number" value="5">
                         </div>
                     </div>
 
