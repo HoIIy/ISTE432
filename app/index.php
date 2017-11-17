@@ -33,6 +33,7 @@
             <div class="w3-white w3-text-grey w3-card-4">
                 <!-- Search filters -->
                 <form class="w3-container">
+
                     <div class="w3-row w3-section">
                         <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-compass"></i></div>
                         <div class="w3-rest">
@@ -127,6 +128,7 @@
                     </div>
 
                     <button class="w3-button w3-block w3-section w3-teal w3-ripple w3-padding">Search</button>
+
                 </form>
             </div>
 
@@ -172,14 +174,19 @@
     </div>
 
     <footer class="w3-container w3-teal w3-center w3-margin-top">
-      <p>Find me on social media.</p>
-      <i class="fa fa-facebook-official w3-hover-opacity"></i>
-      <i class="fa fa-instagram w3-hover-opacity"></i>
-      <i class="fa fa-snapchat w3-hover-opacity"></i>
-      <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-      <i class="fa fa-twitter w3-hover-opacity"></i>
-      <i class="fa fa-linkedin w3-hover-opacity"></i>
-      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+      <p>
+        Fuel station data sourced from 
+        <a href="https://developer.nrel.gov/docs/transportation/alt-fuel-stations-v1/" target="_blank" class="w3-hover-opacity">
+            National Renewable Energy Laboratory
+        </a>
+      </p>
+      <p>
+        Powered by 
+        <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-opacity">
+            w3.css
+        </a> and
+        <a href="https://vuejs.org/" target="_blank" class="w3-hover-opacity">Vue.js</a>
+      </p>
     </footer>
 
     <!-- Google Maps API -->
