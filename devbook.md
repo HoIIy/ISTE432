@@ -187,11 +187,19 @@ The application layer. At that level, exceptions will be formatted for output to
 Whoever is able to fix them. Database connection errors are the responsibility of the DBA for whichever database is connected to this application; on the other hand, for unknown errors that can't be resolved, contacts to the makers of the application will be available or whatever help system we decide to put in place before deployment.
 
 ## Performance and Refactoring
-- eliminatation of duplicate code
-- fixation of bugs
-- more clear and readable code
-- code are all has their functions, no meaningless code
-- enhancement of supporting the requirement
+
+There are different things that will have to be taken into account depending on the layer of the application in terms of performance. For the presentation layer, there are JavaScript pitfalls that you have to be aware of to avoid inhibiting the user experience:
+* Interacting with the DOM takes time. To optimize performance, we aim to minimize the amount of times JavaScript hits the DOM. For example: When generating the list of nearby fuel stations, we will generate all of the HTML in JavaScript, then do a single append. Appending each element as it's created causes the browser to stutter and makes the app slow to use.
+* If parsing a ton of different fuel stations or data from the db, webworkers can be used to spin up a separate thread. This means that the main browser thread won't be bogged down by the processing and allow for a smooth user experience.
+
+For the business layer and below, the way we are using php means that it won't be interacting with the DOM like JavaScript will. Since we have a significant amount of data, though, php will run out of memory if we try to process the entire data set of fuel stations. To handle this and to parse the json into SQL, we will be parsing the data state by state. Once one state is finishing parsing, it will signal the script to grab the next state in the list until all states have been parsed into the database.
+
+On top of language specific performance factors, general coding practices will also help:
+* Follow the DRY principle when writing code
+* Stick to the MVC architecture and layered approach to keep code clean and consitent
+* Have a rolling test plan to weed out bugs during development instead of after all the code has been written
+
+Once more code gets written, a refactoring plan will be put into place if need be.
 
 
 ## Testing
