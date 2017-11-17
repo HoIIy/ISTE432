@@ -187,7 +187,12 @@ The application layer. At that level, exceptions will be formatted for output to
 Whoever is able to fix them. Database connection errors are the responsibility of the DBA for whichever database is connected to this application; on the other hand, for unknown errors that can't be resolved, contacts to the makers of the application will be available or whatever help system we decide to put in place before deployment.
 
 ## Performance and Refactoring
-[More information would be listed after refactoring the project]
+- eliminatation of duplicate code
+- fixation of bugs
+- more clear and readable code
+- code are all has their functions, no meaningless code
+- enhancement of supporting the requirement
+
 
 ## Testing
 [More information would be listed after testing the project]
