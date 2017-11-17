@@ -1,8 +1,8 @@
 <?php
 
-if(isset($_POST))
+if(isset($_GET))
 {
-    switch ($_POST['command'])
+    switch ($_GET['command'])
     {
         case 'get stations':
             // Grab data from the API and parse it into an assoc array

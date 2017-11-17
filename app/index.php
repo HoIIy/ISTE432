@@ -20,8 +20,12 @@
     <div class="w3-content w3-margin-top" style="max-width:1400px;">
 
         <div class="w3-container">
+            <div class="w3-right loginIcon">
+                <a href="#" class="w3-hover-opacity noDecor">
+                    <i class="w3-xxlarge fa fa-user-circle w3-left"></i> <span class="vCenter">Login</span>
+                </a>
+            </div>
             <h1>Alternative Fuel Station Finder</h1>
-            <i class=""></i>
         </div>
 
         <!-- The Grid -->
@@ -203,7 +207,7 @@
     <script type="text/javascript">
         $.ajax({
             url: "api/ApiGateway.php",
-            method:"POST",
+            method:"GET",
             data: {
                 "command": "get stations"
             }
