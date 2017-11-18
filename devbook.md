@@ -192,12 +192,14 @@ There are different things that will have to be taken into account depending on 
 * Interacting with the DOM takes time. To optimize performance, we aim to minimize the amount of times JavaScript hits the DOM. For example: When generating the list of nearby fuel stations, we will generate all of the HTML in JavaScript, then do a single append. Appending each element as it's created causes the browser to stutter and makes the app slow to use.
 * If parsing a ton of different fuel stations or data from the db, webworkers can be used to spin up a separate thread. This means that the main browser thread won't be bogged down by the processing and allow for a smooth user experience.
 
-For the business layer and below, the way we are using php means that it won't be interacting with the DOM like JavaScript will. Since we have a significant amount of data, though, php will run out of memory if we try to process the entire data set of fuel stations. To handle this and to parse the json into SQL, we will be parsing the data state by state. Once one state is finishing parsing, it will signal the script to grab the next state in the list until all states have been parsed into the database.
+For the business layer and below, the way we are using PHP means that it won't be interacting with the DOM like JavaScript will. Since we have a significant amount of data, though, php will run out of memory if we try to process the entire data set of fuel stations. To handle this and to parse the json into SQL, we will be parsing the data state by state. Once one state is finishing parsing, it will signal the script to grab the next state in the list until all states have been parsed into the database.
 
 On top of language specific performance factors, general coding practices will also help:
 * Follow the DRY principle when writing code
 * Stick to the MVC architecture and layered approach to keep code clean and consitent
 * Have a rolling test plan to weed out bugs during development instead of after all the code has been written
+
+At the data level, we already refactored our initial plan for the database design. The table for FuelStations was becoming bloated, so we pulled out attributes that belonged only to specific types of stations and would've duplicated NULL values for any station not of that type; we also pulled out any attribute that justified its own table because it had multiple fields of information about itself. We may further refactor this design and continue to extract pieces of FuelStation into smaller tables, or we may merge some of the smaller tables for simplicity.
 
 Once more code gets written, a refactoring plan will be put into place if need be.
 
