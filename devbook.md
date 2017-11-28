@@ -245,7 +245,7 @@ test('radius is valid: more than 0 but less than max size', () => {
 ```
 
 **Output:**
-
+```
 $ npm test
 
 > vendor@1.0.0 test C:\Users\Ren\Desktop\ISTE432\unittests
@@ -259,13 +259,14 @@ Tests:       1 passed, 1 total
 Snapshots:   0 total
 Time:        1.188s
 Ran all test suites.
+```
 
 The unit tests allow the radius to be passed in, and assumes a default value (for a baseline) in the event that none is. When the radius value is tested after attempted submission of the search form, it'll be able to be checked against these constraints.
 
 **Example:** unit testing to check whether a map object was successfully created. This test is incomplete, not cohesive enough, and needs to be modified: what if there's a different starting latitude/longitude? Can we check to ensure that the map is actually a map? Can we check to ensure it contains the data it should? This probably would be better off refactored into several unit tests.
 
 **Output:**
-
+```
 $ npm test
 
 > vendor@1.0.0 test C:\Users\Ren\Desktop\ISTE432\unittests
@@ -279,6 +280,7 @@ Tests:       3 passed, 3 total
 Snapshots:   0 total
 Time:        1.166s
 Ran all test suites.
+```
 
 Overall, while Jest is especially popular for usage with React, with Javascript itself it's proven to be a very lightweight, easy-to-use testing platform.
 
