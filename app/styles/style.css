@@ -13,15 +13,7 @@ html, body {
     margin-bottom: 10px;
 }
 
-.loginIcon {
-    height:36px;position: relative;
-    top: 50%;
-    transform: translateY(50%);
-}
-
-.noDecor {
-    text-decoration: none;
-}
+/***** General Classes *****/
 
 .vCenter {
     position: relative;
@@ -29,4 +21,45 @@ html, body {
     top: 50%;
     left: 30%;
     transform: translate(-50%, -50%);
+}
+
+.noDecor {
+    text-decoration: none;
+}
+
+.fixed {
+    position: fixed;
+}
+
+/***** Specific Classes *****/
+
+.flexContain {
+    display: block;
+}
+
+.loginIcon {
+    height:36px;position: relative;
+    top: 50%;
+    transform: translateY(50%);
+}
+
+/***** Mobile Support *****/
+
+@media only screen and (max-width: 768px) {
+    .fixed {
+        position: relative;
+    }
+
+    .flexContain {
+        display: flex; 
+        flex-flow: column;
+    }
+
+    .rightMleft {
+        order: 1;
+    }
+
+    .leftMright {
+        order: 2;
+    }
 }

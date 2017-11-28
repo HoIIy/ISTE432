@@ -29,10 +29,10 @@
         </div>
 
         <!-- The Grid -->
-        <div class="w3-row-padding">
+        <div class="w3-row-padding flexContain">
 
         <!-- Left Column -->
-        <div class="w3-twothird">
+        <div class="w3-twothird leftMright">
 
           <!-- Google Map -->
           <div class="w3-container w3-card w3-white w3-margin-bottom">
@@ -65,16 +65,16 @@
         </div>
 
         <!-- Right Column -->
-        <div class="w3-third">
+        <div class="w3-third w3-margin-bottom rightMleft">
 
-            <div class="w3-white w3-text-grey w3-card-4">
+            <div class="w3-white w3-text-grey w3-card-4 fixed">
                 <!-- Search filters -->
                 <form class="w3-container">
 
                     <div class="w3-row w3-section">
                         <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-compass"></i></div>
                         <div class="w3-rest">
-                          <input class="w3-input w3-border" name="location" type="text" placeholder="address, ZIP, or state...">
+                          <input class="w3-input w3-border" name="location" type="text" placeholder="address, ZIP, or state..." required>
                         </div>
                     </div>
 
