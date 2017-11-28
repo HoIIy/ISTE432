@@ -208,10 +208,11 @@ We decided to use Jest, a Javascript testing framework, for our front end unit t
 
 Unit tests are created alongside their relevant source code, allowing us to check the validity of it with a colorful array of potential input, both valid and invalid.
 
-Some qualities and features that will invariably need to be checked:
+Some qualities and features that will invariably require testing to examine their behavior across varying outcomes of success and failure:
+* retrieving/refreshing the list of stations from the API into the DB (What if we have an invalid DB login? What if we get an invalid list of stations?)
 * if an inputted username is a valid username (Not empty, containing valid characters only, etc.)
 * if an inputted password is a valid password (Same as username, along with potential criteria: minimum length? Must have numbers?)
-* the search in particular (Do we retrieve a list of valid stations by address? ZIP? State? What if someone enters an invalid radius?)
+* the search in particular (Do we retrieve a list of valid stations by address? ZIP? State? What if someone enters an invalid radius? What if the map couldn't be loaded and we try to search stations anyways?)
 
 **Example:** unit testing to check the validity of that radius.
 
