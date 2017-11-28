@@ -203,9 +203,80 @@ At the data level, we already refactored our initial plan for the database desig
 
 Once more code gets written, a refactoring plan will be put into place if need be.
 
-
 ## Testing
-[More information would be listed after testing the project]
+We decided to use Jest, a Javascript testing framework, for our front end unit tests; testing is stored outside of the app directory, to ensure easy removal before deployment. 
+
+Unit tests are created alongside their relevant source code, allowing us to check the validity of it with a colorful array of potential input, both valid and invalid.
+
+Some qualities and features that will invariably need to be checked:
+* if an inputted username is a valid username (Not empty, containing valid characters only, etc.)
+* if an inputted password is a valid password (Same as username, along with potential criteria: minimum length? Must have numbers?)
+* the search in particular (Do we retrieve a list of valid stations by address? ZIP? State? What if someone enters an invalid radius?)
+
+**Example:** unit testing to check the validity of that radius.
+**radius.js**
+```
+module.exports = {};
+
+function setVal(val, defaultVal) {
+	return (typeof val == 'undefined') ? defaultVal : val;
+}
+
+module.exports.maxRadius = function maxRadius(a) {
+	var maxRad = setVal(a, 100);
+	return maxRad;
+}
+
+module.exports.getRadius = function getRadius(a) {
+	var getRad = setVal(a, 50);
+	return getRad;
+}
+```
+
+**radius.test.js**
+```
+const radius = require('./radius');
+
+test('radius is valid: more than 0 but less than max size', () => {
+	expect(radius.getRadius()).toBeLessThanOrEqual(radius.maxRadius());
+	expect(radius.getRadius()).toBeGreaterThan(0);
+});
+```
+**Output:**
+$ npm test
+
+> vendor@1.0.0 test C:\Users\Ren\Desktop\ISTE432\unittests
+> jest
+
+PASS .\radius.test.js
+  √ radius is valid: more than 0 but less than the max size (9ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        1.188s
+Ran all test suites.
+
+The unit tests allow the radius to be passed in, and assumes a default value (for a baseline) in the event that none is. When the radius value is tested after attempted submission of the search form, it'll be able to be checked against these constraints.
+
+**Example:** unit testing to check whether a map object was successfully created. This test is incomplete, not cohesive enough, and needs to be modified: what if there's a different starting latitude/longitude? Can we check to ensure that the map is actually a map? Can we check to ensure it contains the data it should? This probably would be better off refactored into several unit tests.
+
+**Output:**
+$ npm test
+
+> vendor@1.0.0 test C:\Users\Ren\Desktop\ISTE432\unittests
+> jest
+
+PASS .\radius.test.js
+PASS .\index.test.js
+
+Test Suites: 2 passed, 2 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        1.166s
+Ran all test suites.
+
+Overall, while Jest is especially popular for usage with React, with Javascript itself it's proven to be a very lightweight, easy-to-use testing platform.
 
 ## Deployment and Packaging
 * This project is public in Github. We will include instructions for cloning it or downloading it, along with other potential additional deployment options like a hosted live version.
