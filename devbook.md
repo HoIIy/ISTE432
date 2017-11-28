@@ -204,7 +204,7 @@ At the data level, we already refactored our initial plan for the database desig
 Once more code gets written, a refactoring plan will be put into place if need be.
 
 ## Testing
-We decided to use Jest, a Javascript testing framework, for our front end unit tests; testing is stored outside of the app directory, to ensure easy removal before deployment. 
+We decided to use Jest, a Javascript testing framework, for our front end unit tests. The tests are stored outside of the app directory to ensure easy removal before deployment. 
 
 Unit tests are created alongside their relevant source code, allowing us to check the validity of it with a colorful array of potential input, both valid and invalid.
 
@@ -214,6 +214,7 @@ Some qualities and features that will invariably need to be checked:
 * the search in particular (Do we retrieve a list of valid stations by address? ZIP? State? What if someone enters an invalid radius?)
 
 **Example:** unit testing to check the validity of that radius.
+
 **radius.js**
 ```
 module.exports = {};
@@ -242,7 +243,9 @@ test('radius is valid: more than 0 but less than max size', () => {
 	expect(radius.getRadius()).toBeGreaterThan(0);
 });
 ```
+
 **Output:**
+
 $ npm test
 
 > vendor@1.0.0 test C:\Users\Ren\Desktop\ISTE432\unittests
@@ -262,6 +265,7 @@ The unit tests allow the radius to be passed in, and assumes a default value (fo
 **Example:** unit testing to check whether a map object was successfully created. This test is incomplete, not cohesive enough, and needs to be modified: what if there's a different starting latitude/longitude? Can we check to ensure that the map is actually a map? Can we check to ensure it contains the data it should? This probably would be better off refactored into several unit tests.
 
 **Output:**
+
 $ npm test
 
 > vendor@1.0.0 test C:\Users\Ren\Desktop\ISTE432\unittests
