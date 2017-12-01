@@ -211,7 +211,8 @@
             method:"GET",
             data: {
                 "command": "nearest",
-                "locString": "rochester,ny"
+                "locString": "rochester,ny",
+                "radius": 5
             }
         }).done(function(data) {
            console.log(data);

@@ -14,11 +14,11 @@ if(!empty($_GET["command"]))
         case "nearest":
             // Location string
             if(!empty($_GET["locString"])) {
-                $apiQuery = "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=tx9yueaUYcSYJn46Jov6S2KaP0F6h2oeWpgaPM9c&format=JSON&location=".$_GET["locString"];
+                $apiQuery = "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=tx9yueaUYcSYJn46Jov6S2KaP0F6h2oeWpgaPM9c&format=JSON&location=".$_GET["locString"]."&radius=".$_GET["radius"];
             }
             // Or latitude/longitude
             else if(!empty($_GET["lat"]) && !empty($_GET["long"])) {
-                $apiQuery = "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=tx9yueaUYcSYJn46Jov6S2KaP0F6h2oeWpgaPM9c&format=JSON&latitude=".$_GET["lat"]."&longitude=".$_GET["long"];
+                $apiQuery = "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=tx9yueaUYcSYJn46Jov6S2KaP0F6h2oeWpgaPM9c&format=JSON&latitude=".$_GET["lat"]."&longitude=".$_GET["long"]."&radius=".$_GET["radius"];
             }
             else {
                 $apiQuery = "error";
