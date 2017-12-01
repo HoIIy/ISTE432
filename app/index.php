@@ -210,7 +210,8 @@
             url: "api/ApiGateway.php",
             method:"GET",
             data: {
-                "command": "get stations"
+                "command": "nearest",
+                "locString": "rochester,ny"
             }
         }).done(function(data) {
            console.log(data);
