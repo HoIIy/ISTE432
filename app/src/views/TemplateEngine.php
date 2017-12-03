@@ -2,6 +2,23 @@
 
     /**
      * Simple template engine class (use [@tag] tags in your templates).
+     * EX:
+     * 
+     * <h1>[@username] profile</h1>
+     * <img src="[@photoURL]" class="photo" alt="[@name]" />
+     * <b>Name:</b> [@name]<br />
+     * <b>Age:</b> [@age]<br />
+     * <b>Location:</b> [@location]<br />
+     *
+     * Usage:
+     * $tpl = new Template(templateFileName);
+     * $tpl->set("username", "monk3y");
+     * $tpl->set("photoURL", "photo.jpg");
+     * $tpl->set("name", "Monkey man");
+     * $tpl->set("age", "23");
+     * $tpl->set("location", "Portugal");
+     *
+     * echo $tpl->output();
      * 
      * @link http://www.broculos.net/ Broculos.net Programming Tutorials
      * @author Nuno Freitas <nunofreitas@gmail.com>
@@ -85,6 +102,7 @@
                 $content = (get_class($template) !== "Template")
                     ? "Error, incorrect type - expected Template."
                     : $template->output();
+
                 $output .= $content . $separator;
             }
             
