@@ -1,5 +1,7 @@
 <?php
 
+require_once("../src/controllers/Controller.php");
+
 if(!empty($_GET["command"]))
 {
     $apiQuery = "";
@@ -14,7 +16,7 @@ if(!empty($_GET["command"]))
         case "nearest":
             // Location string
             if(!empty($_GET["locString"])) {
-                $apiQuery = "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=tx9yueaUYcSYJn46Jov6S2KaP0F6h2oeWpgaPM9c&format=JSON&location=".$_GET["locString"]."&radius=".$_GET["radius"];
+                $apiQuery = "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=tx9yueaUYcSYJn46Jov6S2KaP0F6h2oeWpgaPM9c&format=JSON&location=".$_GET["locString"]."&radius=".$_GET["radius"]."&limit=5";
             }
             // Or latitude/longitude
             else if(!empty($_GET["lat"]) && !empty($_GET["long"])) {
@@ -47,9 +49,17 @@ if(!empty($_GET["command"]))
     }
     else
     {
+        $output;
+
+        if($_GET["command"] == "nearest") {
+            $output = buildStationList(json_decode($fuelStations, true)['fuel_stations']);
+        }
+        else {
+            $output = $fuelStations;
+        }
+
         // Echo the data back to the js
-        // Once the database is designed, we can call another script to load this data into the DB
-        echo $fuelStations;
+        echo $output;
         die;
     }
 }

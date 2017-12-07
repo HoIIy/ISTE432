@@ -1,4 +1,5 @@
 var apiDest = "api/ApiGateway.php";
+var lastPosition = 0;
 
 $(document).ready(function() {
     requestData(apiDest, {
@@ -7,6 +8,8 @@ $(document).ready(function() {
         "radius": 5
     }, function(res) {
         console.log(res);
+        $(".listHolder").remove();
+        $("#stationList").append(res);
     });
 });
 
@@ -36,18 +39,18 @@ function requestData(destination, params, doneFunct) {
     }).done(function(data) {
         // console.log(data);
         try {
-            var response = JSON.parse(data);
+            // response = JSON.parse(data);
 
             // Call the finish function
-            doneFunct(response);
+            doneFunct(data);
         } catch(e) {
             // Close any modals
-            displayModal(true, false);
-            addNotification(false, 'body', "An error has occurred. Please refresh or try again later")
+            //displayModal(true, false);
+            //addNotification(false, 'body', "An error has occurred. Please refresh or try again later")
         }
 
     }).fail(function(xhr, status, error) {
         // Handle error
-        addNotification(false, 'body', "A network error has occurred. Please refresh or try again later");
+        //addNotification(false, 'body', "A network error has occurred. Please refresh or try again later");
     });
 }
