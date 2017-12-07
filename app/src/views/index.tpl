@@ -31,7 +31,7 @@
 			<div id="login" class="w3-modal">
  			   <div class="w3-modal-content">
     		             <div class="w3-container">
-    				<span onclick="document.getElementById('login').style.display='none'"class="w3-button w3-display-topright vCenter">
+    				<span onclick="document.getElementById('login').style.display='none'"class="vCenter">
 				&times;</span>
 <div class="loginForm" class="card-5">
     <div class="loginFormLeft">
