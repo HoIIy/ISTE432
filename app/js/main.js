@@ -7,23 +7,21 @@ $(document).ready(function() {
         "locString": "rochester,ny",
         "radius": 5
     }, function(res) {
-        console.log(res);
+        //console.log(res);
         $(".listHolder").remove();
         $("#stationList").append(res);
+
+        var lats = $('.lat');
+        var longs = $('.long');
+
+        // In a timeout to allow the map to fully load
+        setTimeout(function(){
+            for(var j = 0; j < lats.length; j++) {
+                createMarker({lat: Number(lats[j].textContent), lng: Number(longs[j].textContent)});
+            }
+        }, 2000);
     });
 });
-
-// $.ajax({
-//     url: "api/ApiGateway.php",
-//     method:"GET",
-//     data: {
-//         "command": "nearest",
-//         "locString": "rochester,ny",
-//         "radius": 5
-//     }
-// }).done(function(data) {
-//    console.log(data);
-// });
 
 /**
  * Constructs and sends the ajax request to the API gateway
