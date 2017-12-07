@@ -80,7 +80,7 @@ class Station {
             $element->set('types', $this->buildConnectorList());
         }
         else if($this->vehicleSize != '') {
-            $element->set('types', $this->vehicleSize)
+            $element->set('types', $this->vehicleSize);
         }
         else {
             $element->set('types', '');

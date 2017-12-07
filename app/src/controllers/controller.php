@@ -1,6 +1,6 @@
 <?php
 
-require_once('../src/controllers/Stations.Controller.php');
+require_once('../src/models/Stations.Model.php');
 
 function buildStationList($stations) {
     $html = '';

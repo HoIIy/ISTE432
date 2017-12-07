@@ -1,4 +1,5 @@
 var map;
+var markers = [];
 
 /**
  * Initializes the google map
@@ -26,4 +27,18 @@ function createMarker(pos) {
         animation: google.maps.Animation.DROP,
         map: map
     });
+
+    markers.push(marker);
+}
+
+/**
+ * [clearAllMarkers description]
+ * @return {[type]} [description]
+ */
+function clearAllMarkers() {
+    var len = markers.length;
+    for (var i = 0; i < len; i++ ) {
+        markers[i].setMap(null);
+    }
+    markers = [];
 }

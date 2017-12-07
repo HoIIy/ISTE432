@@ -56,7 +56,7 @@
 
             <div class="w3-white w3-text-grey w3-card-4 fixed">
                 <!-- Search filters -->
-                <form class="w3-container">
+                <form class="w3-container" onsubmit="getStations(this); return false;">
 
                     <div class="w3-row w3-section">
                         <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-compass"></i></div>
@@ -151,7 +151,7 @@
                         </div>
                     </div>
 
-                    <button class="w3-button w3-block w3-section w3-teal w3-ripple w3-padding">Search</button>
+                    <button type="submit" class="w3-button w3-block w3-section w3-teal w3-ripple w3-padding">Search</button>
 
                 </form>
             </div>

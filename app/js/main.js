@@ -2,13 +2,31 @@ var apiDest = "api/ApiGateway.php";
 var lastPosition = 0;
 
 $(document).ready(function() {
-    requestData(apiDest, {
-        "command": "nearest",
-        "locString": "rochester,ny",
-        "radius": 5
-    }, function(res) {
-        //console.log(res);
+    // Set all of the map markers
+});
+
+function getStations(ele) {
+    // Get the form values
+    var inputs = $(ele).find('input');
+    var selects = $(ele).find('select');
+    var values = {"command": "nearest"};
+
+    inputs.each(function(index, element) {
+        values[element.name] = encodeURI(element.value);
+    });
+
+    selects.each(function(index, element) {
+        values[element.name] = $(element).find(":selected").val();
+    });
+
+    console.log(values);
+
+    requestData(apiDest, values, function(res) {
+        clearAllMarkers();
+
+        // Format the elements in the DOM. TODO figure out how to use Vue.js for this
         $(".listHolder").remove();
+        $(".station").remove();
         $("#stationList").append(res);
 
         var lats = $('.lat');
@@ -19,9 +37,13 @@ $(document).ready(function() {
             for(var j = 0; j < lats.length; j++) {
                 createMarker({lat: Number(lats[j].textContent), lng: Number(longs[j].textContent)});
             }
+
+            if(lats.length > 0) {
+                map.setCenter(markers[0].getPosition());
+            }
         }, 2000);
     });
-});
+}
 
 /**
  * Constructs and sends the ajax request to the API gateway
@@ -50,5 +72,6 @@ function requestData(destination, params, doneFunct) {
     }).fail(function(xhr, status, error) {
         // Handle error
         //addNotification(false, 'body', "A network error has occurred. Please refresh or try again later");
+        console.log(error);
     });
 }

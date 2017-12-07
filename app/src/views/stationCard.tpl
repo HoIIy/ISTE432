@@ -1,4 +1,4 @@
-<div class="w3-container w3-btn w3-card-2 w3-margin-bottom w3-left-align" style="width: 100%">
+<div class="station w3-container w3-btn w3-card-2 w3-margin-bottom w3-left-align" style="width: 100%">
     <div class="w3-cell-row w3-margin-top">
         <div class="w3-container w3-cell w3-third" style="padding:0;">
             <div class="w3-opacity"><b>[@street]</b></div>
