@@ -19,10 +19,6 @@
      * $tpl->set("location", "Portugal");
      *
      * echo $tpl->output();
-     * 
-     * @link http://www.broculos.net/ Broculos.net Programming Tutorials
-     * @author Nuno Freitas <nunofreitas@gmail.com>
-     * @version 1.0
      */
     class Template {
         /**
