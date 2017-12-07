@@ -22,7 +22,19 @@
         <div class="w3-container">
             <div class="w3-right loginIcon">
                 <a href="#" class="w3-hover-opacity noDecor">
-                    <i class="w3-xxlarge fa fa-user-circle w3-left"></i> <span class="vCenter">Login</span>
+                   // <i class="w3-xxlarge fa fa-user-circle w3-left"></i> <span class="vCenter">Login</span>
+		    <!-- Trigger/Open the Modal -->
+			<button onclick="document.getElementById('login').style.display='block'"class="w3-button">Open Modal</button>
+
+		   <!-- The Modal -->
+			<div id="login" class="w3-modal">
+ 			   <div class="w3-modal-content">
+    		             <div class="w3-container">
+    				<span onclick="document.getElementById('id01').style.display='none'"class="w3-button w3-display-topright">&times;</span>
+      
+    			     </div>
+    		           </div>
+		        </div>
                 </a>
             </div>
             <h1>Alternative Fuel Station Finder</h1>
