@@ -22,7 +22,7 @@
         <div class="w3-container">
             <div class="w3-right loginIcon">
                 <a href="#" class="w3-hover-opacity noDecor">
-                   /*<i class="w3-xxlarge fa fa-user-circle w3-left"></i> <span class="vCenter">Login</span>*/
+                   <!--<i class="w3-xxlarge fa fa-user-circle w3-left"></i> <span class="vCenter">Login</span>-->
 		    <!-- Trigger/Open the Modal -->
 			<button onclick="document.getElementById('login').style.display='block'"class="w3-button">
 			Login</button>
