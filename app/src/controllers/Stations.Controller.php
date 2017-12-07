@@ -5,8 +5,8 @@ require_once('../src/views/TemplateEngine.php');
 class Station {
     private $access;
     private $fuelType;
-    private $connectorType;
-    private $vehicleSize;
+    private $connectorType = '';
+    private $vehicleSize = '';
     private $phoneNumber;
     private $latitude;
     private $longitude;
@@ -62,18 +62,31 @@ class Station {
     /**
      * Constructs a station element for the list section
      * 
-     * @return [type] [description]
+     * @return formatted html of this station
      */
     public function buildElement() {
+        // Initiate template and set static vars
         $element = new Template('../src/views/stationCard.tpl');
         $element->set('street', $this->street);
         $element->set('access', $this->access);
         $element->set('fuel', $this->fuelType);
         $element->set('group', $this->group);
         $element->set('phone', $this->phoneNumber);
-        $element->set('types', $this->buildConnectorList());
         $element->set('lat', $this->latitude);
         $element->set('long', $this->longitude);
+
+        // Determine fueling information
+        if($this->connectorType != '') {
+            $element->set('types', $this->buildConnectorList());
+        }
+        else if($this->vehicleSize != '') {
+            $element->set('types', $this->vehicleSize)
+        }
+        else {
+            $element->set('types', '');
+        }
+
+        // Set the directions
         if($this->directions == '') {
             $element->set('directions', 'N/A');
         }
@@ -85,8 +98,9 @@ class Station {
     }
 
     /**
-     * [buildConnectorList description]
-     * @return [type] [description]
+     * Builds a list of electric connectors
+     * 
+     * @return html markup for the list of connectors
      */
     private function buildConnectorList() {
         $html = '<li><h5>Connector Types</h5></li>';
