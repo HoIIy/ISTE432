@@ -31,12 +31,31 @@
  			   <div class="w3-modal-content">
     		             <div class="w3-container">
     				<span onclick="document.getElementById('id01').style.display='none'"class="w3-button w3-display-topright">&times;</span>
-      
+<div class="loginForm" class="card-5">
+    <div class="loginFormLeft">
+		<form action="#" onsubmit="return loginUser()" method="post">
+	    <div class="formField">
+			<label for="username">Username</label>
+			<input type="text" name="username" maxlength="30" autofocus>
+		</div>
+	    <div class="formField">
+			<label for="password">Password</label>
+			<input type="password" name="psswd" maxlength="30">
+		</div>
+		<div id="submit">
+			<input type="submit" class="submit" value="Login">
+		</div>
+		</form>
+		<div class="formField"><a href="#" onclick="forgotPass()">Forgot password?</a></div>
+		<div class="formField"><a href="#" onclick="createAccount()">Create an account?</a></div>
+	</div>
+</div>
     			     </div>
     		           </div>
 		        </div>
                 </a>
             </div>
+	    
             <h1>Alternative Fuel Station Finder</h1>
         </div>
 
