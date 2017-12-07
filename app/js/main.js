@@ -23,6 +23,33 @@ $(document).ready(function() {
     });
 });
 
+$( ".loginIcon" ).on("click", function(){
+	$("#map").hide();
+	$("#stationList").children().remove();
+    $.ajax({
+        url: "src/controllers/Login.Controller.php",
+        method:"POST",
+        data: {"command":"login"}
+    }).done(function(data) {
+        try {
+			// Call the finish function
+			data = JSON.parse(data);
+			
+			if (typeof data['error'] !== 'undefined') {
+				var successRedirect  = "?error=" + encodeURIComponent(data['error']);
+				window.location.href = successRedirect;
+			}
+            $("#stationList").append(data['msg']);
+        } catch(e) {
+			$("#stationList").append("Error getting data: please refresh or try again.");
+        }
+
+    }).fail(function(xhr, status, error) {
+        // Handle error
+		$("#stationList").append(error);
+    });
+});
+
 /**
  * Constructs and sends the ajax request to the API gateway
  * 
