@@ -1,4 +1,4 @@
-var apiDest = "api/ApiGateway.php";
+var apiDest = "src/controllers/ApiGateway.php";
 var lastPosition = 0;
 
 $(document).ready(function() {

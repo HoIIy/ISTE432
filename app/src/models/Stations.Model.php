@@ -1,6 +1,6 @@
 <?php
 
-require_once('../src/views/TemplateEngine.php');
+require_once('../views/TemplateEngine.php');
 
 class Station {
     private $access;
@@ -66,7 +66,7 @@ class Station {
      */
     public function buildElement() {
         // Initiate template and set static vars
-        $element = new Template('../src/views/stationCard.tpl');
+        $element = new Template('../views/stationCard.tpl');
         $element->set('street', $this->street);
         $element->set('access', $this->access);
         $element->set('fuel', $this->fuelType);

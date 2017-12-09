@@ -1,6 +1,6 @@
 <?php
 
-require_once("../src/controllers/Controller.php");
+require_once("Controller.php");
 
 if(!empty($_GET["command"]))
 {
