@@ -286,4 +286,6 @@ Ran all test suites.
 Overall, while Jest is especially popular for usage with React, with Javascript itself it's proven to be a very lightweight, easy-to-use testing platform.
 
 ## Deployment and Packaging
-* This project is public in Github. We will include instructions for cloning it or downloading it, along with other potential additional deployment options like a hosted live version.
+* This project is public in Github. 
+
+Instructions for cloning it and utilizing it are in README.txt and an additional live version will be linked once the project is complete.
