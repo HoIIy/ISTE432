@@ -22,9 +22,42 @@
         <div class="w3-container">
             <div class="w3-right loginIcon">
                 <a href="#" class="w3-hover-opacity noDecor">
-                    <i class="w3-xxlarge fa fa-user-circle w3-left"></i> <span class="vCenter">Login</span>
+                   <!--<i class="w3-xxlarge fa fa-user-circle w3-left"></i> <span class="vCenter">Login</span>-->
+		    <!-- Trigger/Open the Modal -->
+			<button onclick="document.getElementById('login').style.display='block'"class="w3-button">
+			Login</button>
+
+		   <!-- The Modal -->
+			<div id="login" class="w3-modal vCenter">
+ 			   <div class="w3-modal-content">
+    		             <div class="w3-container">
+    				<span onclick="document.getElementById('login').style.display='none'"class="w3-button w3-display-topright">
+				&times;</span>
+<div class="loginForm" class="card-5">
+    <div class="loginFormLeft">
+		<form action="#" onsubmit="return loginUser()" method="post">
+	    <div class="formField">
+			<label for="username">Username</label>
+			<input type="text" name="username" maxlength="30" autofocus>
+		</div>
+	    <div class="formField">
+			<label for="password">Password</label>
+			<input type="password" name="psswd" maxlength="30">
+		</div>
+		<div id="submit">
+			<input type="submit" class="submit" value="Login">
+		</div>
+		</form>
+		<div class="formField"><a href="#" onclick="forgotPass()">Forgot password?</a></div>
+		<div class="formField"><a href="#" onclick="createAccount()">Create an account?</a></div>
+	</div>
+</div>
+    			     </div>
+    		           </div>
+		        </div>
                 </a>
             </div>
+	    
             <h1>Alternative Fuel Station Finder</h1>
         </div>
 
