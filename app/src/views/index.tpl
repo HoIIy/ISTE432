@@ -183,16 +183,17 @@
       </p>
     </footer>
 
-    <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1tWKDlFDlo-jIkjlI2yhv2P4QDhBcd3s&callback=initMap" 
-    async defer></script>
-
     <!-- jQuery -->
     <script type="text/javascript" src="vendor/jquery-3.2.1.min.js"></script>
 
     <!-- JS for handling map -->
     <script type="text/javascript" src="js/MapController.js"></script>
 
+    <!-- Main JS controller -->
     <script type="text/javascript" src="js/main.js"></script>
+
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1tWKDlFDlo-jIkjlI2yhv2P4QDhBcd3s&callback=initMap" 
+    async defer></script>
 </body>
 </html>

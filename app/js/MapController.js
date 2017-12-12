@@ -5,13 +5,12 @@ var markers = [];
  * Initializes the google map
  */
 function initMap() {
-    // Center of RIT
-    var rit = {lat: 43.186096, lng: -77.6864388};
-
     // Create a map object and specify the DOM element for display.
+    // Initially centered on the geographic center of the US
+    // Lebanon, KS, probably the most boring place on earth
     map = new google.maps.Map(document.getElementById('map'), {
-        center: rit,
-        zoom: 12
+        center: new google.maps.LatLng(39.8097343, -98.5556199),
+        zoom: 4
     });
 }
 

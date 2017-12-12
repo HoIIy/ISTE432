@@ -1,4 +1,5 @@
 var apiDest = "src/controllers/ApiGateway.php";
+var loginDest = "src/controllers/Login.Controller.php";
 var lastPosition = 0;
 
 $(document).ready(function() {
@@ -58,26 +59,20 @@ $( ".loginIcon" ).on("click", function(){
 function getLoginForm(){
 	$("#map").hide();
 	$("#stationList").children().remove();
-    $.ajax({
-        url: "src/controllers/Login.Controller.php",
-        method:"POST",
-        data: {"command":"login"}
-    }).done(function(data) {
+
+    requestData(loginDest, {"command":"login"}, function(data) {
         try {
-			// Call the finish function
-			data = JSON.parse(data);
-			if (typeof data['error'] !== 'undefined') {
-				var successRedirect  = "?error=" + encodeURIComponent(data['error']);
-				window.location.href = successRedirect;
-			}
+            // Call the finish function
+            data = JSON.parse(data);
+            if (typeof data['error'] !== 'undefined') {
+                var successRedirect  = "?error=" + encodeURIComponent(data['error']);
+                window.location.href = successRedirect;
+            }
             $("#stationList").append(data['msg']);
         } catch(e) {
-			$("#stationList").append("Error getting data: please refresh or try again.");
+            $("#stationList").append("Error getting data: please refresh or try again.");
         }
 
-    }).fail(function(xhr, status, error) {
-        // Handle error
-		$("#stationList").append(error);
     });
 }
 
@@ -90,26 +85,20 @@ function loginUser(){
 function createAccount(){
 	$("#map").hide();
 	$("#stationList").children().remove();
-    $.ajax({
-        url: "src/controllers/Login.Controller.php",
-        method:"POST",
-        data: {"command":"register"}
-    }).done(function(data) {
+
+    requestData(loginDest, {"command":"register"}, function(data) {
         try {
-			// Call the finish function
-			data = JSON.parse(data);
-			if (typeof data['error'] !== 'undefined') {
-				var successRedirect  = "?error=" + encodeURIComponent(data['error']);
-				window.location.href = successRedirect;
-			}
+            // Call the finish function
+            data = JSON.parse(data);
+            if (typeof data['error'] !== 'undefined') {
+                var successRedirect  = "?error=" + encodeURIComponent(data['error']);
+                window.location.href = successRedirect;
+            }
             $("#stationList").append(data['msg']);
         } catch(e) {
-			$("#stationList").append("Error getting data: please refresh or try again.");
+            $("#stationList").append("Error getting data: please refresh or try again.");
         }
 
-    }).fail(function(xhr, status, error) {
-        // Handle error
-		$("#stationList").append(error);
     });
 }
 
