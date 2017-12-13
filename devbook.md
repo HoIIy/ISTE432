@@ -288,4 +288,4 @@ Overall, while Jest is especially popular for usage with React, with Javascript 
 ## Deployment and Packaging
 * This project is public in Github. 
 
-Instructions for cloning it and utilizing it are in README.txt and an additional live version will be linked once the project is complete.
+Instructions for cloning it and utilizing it are in README.md and an additional live version will be linked once the project is complete.
