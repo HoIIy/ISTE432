@@ -16,7 +16,6 @@ function initMap() {
 
 /**
  * Creates a new marker.
- * TODO: Need to store these in another way
  * 
  * @param pos - lat and long coordinates for marker
  */

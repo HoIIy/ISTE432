@@ -14,16 +14,40 @@ if(!empty($_GET["command"]))
             break;
 
         case "nearest":
-            // Location string
-            if(!empty($_GET["location"])) {
-                $apiQuery = "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=tx9yueaUYcSYJn46Jov6S2KaP0F6h2oeWpgaPM9c&format=JSON&location=".$_GET["location"]."&radius=".$_GET["distance"]."&limit=5"."&fuel_type=".$_GET["fuel"]."&owner_type=".$_GET["owner"]."&cards_accepted=".$_GET['payment'];
-            }
-            // Or latitude/longitude
-            else if(!empty($_GET["lat"]) && !empty($_GET["long"])) {
-                $apiQuery = "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=tx9yueaUYcSYJn46Jov6S2KaP0F6h2oeWpgaPM9c&format=JSON&latitude=".$_GET["lat"]."&longitude=".$_GET["long"]."&radius=".$_GET["radius"];
+            // Build API query string
+            if(!empty($_GET["location"]) || 
+              (!empty($_GET["lat"]) && !empty($_GET["long"]))) {
+
+                if(!empty($_GET["location"])) {
+                    $apiQuery = "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?".
+                        "api_key=tx9yueaUYcSYJn46Jov6S2KaP0F6h2oeWpgaPM9c&format=JSON".
+                        "&location=".$_GET["location"];
+                }
+                else {
+                    $apiQuery = "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?".
+                        "api_key=tx9yueaUYcSYJn46Jov6S2KaP0F6h2oeWpgaPM9c&format=JSON".
+                        "&latitude=".$_GET["lat"].
+                        "&longitude=".$_GET["long"];
+                }
+
+                // Add general parameters
+                $apiQuery .= "&radius=".$_GET["distance"].
+                             "&fuel_type=".$_GET["fuel"].
+                             "&owner_type=".$_GET["owner"].
+                             "&cards_accepted=".$_GET['payment'];
+
+                // Determine if planned stations should be excluded
+                if("false" == $_GET["private"]) {
+                    $apiQuery .= "&status=E";
+                }
+
+                // Determine if private stations should be excluded
+                if("false" == $_GET["planned"]) {
+                    $apiQuery .= "&access=public";
+                }
             }
             else {
-                $apiQuery = "error";
+                $apiQuery = array("error" => "No location set!");
             }
 
             break;
@@ -31,9 +55,9 @@ if(!empty($_GET["command"]))
             // Echo no command given error
             break;
     }
-
+    
     // Get the data from the API
-    if($apiQuery != "error") {
+    if(!isset($apiQuery["error"])) {
         $fuelStations = callApi($apiQuery);
     }
     else {
@@ -41,17 +65,16 @@ if(!empty($_GET["command"]))
     }
 
     // Determine what to echo back to script
-    if($fuelStations == "error")
+    if(isset($fuelStations["error"]))
     {
-        // Echo error
-        echo "Error";
+        // Echo the error
+        echo "{'error':'An error occurred. Please refresh or try again.','log':'API error - ".$fuelStations["error"]."'}";
         die;
     }
     else
     {
-        $output;
-
         if($_GET["command"] == "nearest") {
+            // Called from Controller.php
             $output = buildStationList(json_decode($fuelStations, true)['fuel_stations']);
         }
         else {
@@ -68,7 +91,7 @@ function callApi($queryString) {
     $data = json_decode(file_get_contents($queryString), true);
 
     if(isset($data["error"])) {
-        return "error";
+        return $data;
     }
     else {
         return json_encode($data);

@@ -7,12 +7,10 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="styles/w3.css">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
     <link rel="stylesheet" href="styles/font-awesome-4.7.0/css/font-awesome.min.css">
 
-    <!-- Vue.js (needs to be in the head) -->
-    <script type="text/javascript" src="vendor/vue.min.js"></script>
 </head>
 <body class="w3-light-grey">
 
@@ -45,7 +43,7 @@
 		  [@errorMsg]
             <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>STATIONS</h2>
             
-            <div class="w3-container listHolder">
+            <div id="stationsList" class="w3-container listHolder">
               <h1 class="w3-opacity w3-center"><b>Search for Stations</b></h1>
             </div>
           </div>
