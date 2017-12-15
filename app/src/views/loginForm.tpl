@@ -1,3 +1,4 @@
+<div class="loginForm w3-modal">
 <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>LOGIN</h2>
 <div class="loginForm" class="card-5">
     <div class="loginFormLeft">
@@ -17,4 +18,5 @@
 		<div class="formField"><a href="#" onclick="forgotPass()">Forgot password?</a></div>
 		<div class="formField"><a href="#" onclick="createAccount()">Create an account?</a></div>
 	</div>
+</div>
 </div>
