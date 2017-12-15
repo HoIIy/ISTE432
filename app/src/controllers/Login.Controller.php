@@ -28,6 +28,13 @@ function buildForgotPassScreen(){
 	return json_encode(array("msg"=>"forgot pass screen"));
 }
 
+function buildprofileScreen(){
+    $html = '';
+	$loginPage = new LoginPage();
+	$html = $loginPage->profile();
+	return json_encode(array("msg"=>$html));
+}
+
 if(!empty($_POST["command"])) {
 	switch($_POST["command"]){
 		case 'login':
@@ -40,6 +47,10 @@ if(!empty($_POST["command"])) {
 			
 		case 'forgotPass':
 			echo buildForgotPassScreen();
+			break;
+			
+		case 'profile':
+			echo buildprofileScreen();
 			break;
 			
 		default:
