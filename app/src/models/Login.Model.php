@@ -19,5 +19,10 @@ class LoginPage {
 		$element = new Template('../views/regForm.tpl');
 		return $element->output();
 	}
+	
+	public function profile(){
+        	$element = new Template('../views/profile.tpl');
+       	 	return $element->output();
+        }
 }
 ?>
