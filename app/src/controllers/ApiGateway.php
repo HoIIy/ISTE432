@@ -31,7 +31,7 @@ if(!empty($_GET["command"]))
                 }
 
                 // Add general parameters
-                $apiQuery .= "&radius=".$_GET["distance"].
+                $apiQuery .= "&radius=5".
                              "&fuel_type=".$_GET["fuel"].
                              "&owner_type=".$_GET["owner"].
                              "&cards_accepted=".$_GET['payment'];
@@ -55,7 +55,7 @@ if(!empty($_GET["command"]))
             // Echo no command given error
             break;
     }
-    
+
     // Get the data from the API
     if(!isset($apiQuery["error"])) {
         $fuelStations = callApi($apiQuery);

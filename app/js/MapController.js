@@ -1,5 +1,6 @@
 var map;
-var markers = [];
+var markers = {}; // object of current markers
+var lastOpenedWindow = '';
 
 /**
  * Initializes the google map
@@ -18,25 +19,73 @@ function initMap() {
  * Creates a new marker.
  * 
  * @param pos - lat and long coordinates for marker
+ * @param content - content for the marker's info window
+ * @param id - the id of the corresponding station element
  */
-function createMarker(pos) {
+function createMarker(pos, content, id) {
     var marker = new google.maps.Marker({
         position: pos,
         animation: google.maps.Animation.DROP,
         map: map
     });
 
-    markers.push(marker);
+    // Create the info window for this marker
+    var infowindow = new google.maps.InfoWindow({
+        content: content
+    });
+
+    marker.addListener('click', function() {
+        openInfoWindow(infowindow, marker);
+
+        // Set the stations list to the station that was clicked
+        displayClickedStation(id);
+    });
+
+    markers[id] = {marker:marker,infowindow:infowindow};
 }
 
 /**
- * [clearAllMarkers description]
- * @return {[type]} [description]
+ * When a station list element is clicked, this will center on the 
+ * corresponding marker and open it's info window
+ * 
+ * @param id - the station/marker id
+ */
+function highlightMarker(id) {
+    map.setCenter(markers[id].marker.getPosition());
+    map.setZoom(12);
+    openInfoWindow(markers[id].infowindow, markers[id].marker);
+}
+
+/**
+ * Opens a marker's info window and removes the last info window that was opened
+ * 
+ * @param infoWindow - the marker's info window
+ * @param marker - the specific marker on the map
+ */
+function openInfoWindow(infoWindow, marker) {
+    if(lastOpenedWindow != '') {
+        lastOpenedWindow.close();
+    }
+
+    infoWindow.open(map, marker);
+
+    lastOpenedWindow = infoWindow;
+
+    // Scroll the map into view
+    document.getElementById('map').scrollIntoView();
+}
+
+/**
+ * Clears all of the markers from the map and resets the markers object
  */
 function clearAllMarkers() {
-    var len = markers.length;
-    for (var i = 0; i < len; i++ ) {
-        markers[i].setMap(null);
+    if(lastOpenedWindow != "") {
+        lastOpenedWindow.close();
     }
-    markers = [];
+
+    var len = markers.length;
+    for (var i in markers) {
+        markers[i].marker.setMap(null);
+    }
+    markers = {};
 }

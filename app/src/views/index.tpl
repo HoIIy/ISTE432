@@ -128,14 +128,6 @@
                     </div>
 
                     <div class="w3-row w3-section">
-                        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-location-arrow"></i></div>
-                        <div class="w3-rest">
-                          <label>Distance in miles</label>
-                          <input class="w3-input w3-border" name="distance" type="number" value="5">
-                        </div>
-                    </div>
-
-                    <div class="w3-row w3-section">
                         <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-ban"></i></div>
                         <div class="w3-rest">
                             <input class="w3-check" name="private" type="checkbox">
@@ -177,7 +169,7 @@
         <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-opacity">
             w3.css
         </a> and
-        <a href="https://vuejs.org/" target="_blank" class="w3-hover-opacity">Vue.js</a>
+        <a href="http://jquery.com/" target="_blank" class="w3-hover-opacity">jQuery</a>
       </p>
     </footer>
 

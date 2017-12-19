@@ -3,6 +3,7 @@
 require_once('../views/TemplateEngine.php');
 
 class Station {
+    private $id;
     private $access;
     private $fuelType;
     private $connectorType = '';
@@ -37,6 +38,7 @@ class Station {
      * @param $station - array containing station's parameters
      */
     public function __construct($station) {
+        $this->id = $station['id'];
         $this->access = $station['access_days_time'];
         $this->fuelType = $this->fuelTypes[$station['fuel_type_code']];
 
@@ -74,6 +76,7 @@ class Station {
         $element->set('phone', $this->phoneNumber);
         $element->set('lat', $this->latitude);
         $element->set('long', $this->longitude);
+        $element->set('id', $this->id);
 
         // Determine fueling information
         if($this->connectorType != '') {

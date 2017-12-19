@@ -4,9 +4,11 @@ var loginDest = "src/controllers/Login.Controller.php";
 
 var lastPosition = 0; // Keeps track of pagination index
 var pageLastDirection; // Keeps track of if 'next' or 'previous' was hit
-var currentStations; // List of the most recent search results
+var currentStations; // List of the most recent search results. Used for pagination
+var currentStationsObj = {}; // For accessing individual station elements
 var currentStationsLength; // Length of the array of most recent search results
 var stationListEle = $("#stationList"); // Container element that holds the list of stations
+var PAGE_LENGTH = 5; // Length of stations page
 
 /**
  * Makes a call to get fuel stations based on the search parameters
@@ -38,14 +40,14 @@ function getStations(ele) {
         clearAllMarkers();
 
         currentStations = $(res);
-        currentStationslength = currentStations.length;
+        currentStationsLength = currentStations.length;
 
-        if(currentStationslength > 0) {
+        if(currentStationsLength > 0) {
             // Format the elements in the DOM. TODO figure out how to use Vue.js for this
             $(".listHolder").remove();
 
             // Add pagination buttons if needed
-            if(currentStationslength > 5 && $(".pagination").length == 0) {
+            if(currentStationsLength > 5 && ($(".pagination").length == 0 || $(".pagination").children().length <= 1)) {
                 stationListEle.append(
                     '<div class="w3-bar w3-border w3-round w3-margin-bottom pagination">'+
                        '<button onclick="listStations(0)" class="w3-button paginateL">&#10094; Previous</button>'+
@@ -57,14 +59,22 @@ function getStations(ele) {
             // Reset the pagination count
             lastPosition = 0;
 
-            // Create map markers
-            for(var i = 0; i < currentStationslength; i++) {
+            // Create map markers and set stations object
+            for(var i = 0; i < currentStationsLength; i++) {
                 var ele = $(currentStations[i]);
                 var lat = ele.find('.lat').text();
                 var long = ele.find('.long').text();
+                var id = ele.find('.stationId').text();
+
+                // Set stations object key as the id
+                currentStationsObj[id] = currentStations[i];
+
+                // Create info window content
+                var infoContent = "<div>"+ele.find('.street').text()+"</div>"+
+                        "<button class='w3-button w3-circle w3-teal w3-right' onclick='addToFavorites("+id+")' title='Save to Favorites'>+</button>";
 
                 // Create the map marker
-                createMarker({lat: Number(lat), lng: Number(long)});
+                createMarker({lat: Number(lat), lng: Number(long)}, infoContent, id);
             }
 
             // List the first page of results
@@ -81,11 +91,17 @@ function getStations(ele) {
  * 
  * @param direction - 0 for go back, 1 for go forward
  */
-function listStations(direction) {
-    var PAGE_LENGTH = 5;
+function listStations(direction, reAppendPagination) {
 
     // Clear the current list of stations
-    $(".station").remove()
+    $(".station").remove();
+
+    if(reAppendPagination) {
+        $('.pagination').html(
+           '<button onclick="listStations(0)" class="w3-button paginateL">&#10094; Previous</button>'+
+           '<button onclick="listStations(1)" class="w3-button w3-right paginateR">Next &#10095;</button>'
+        );
+    }
 
     // Reactivate next and last buttons if necessary
     if(direction == 0) {
@@ -123,14 +139,15 @@ function listStations(direction) {
     }
 
     // Center the map on the first marker in the current page
-    map.setCenter(markers[lastPosition].getPosition());
-    map.setZoom(11);
+    var id = $(currentStations[lastPosition]).find(".stationId").text();
+    map.setCenter(markers[id].marker.getPosition());
+    map.setZoom(12);
 
     // Disable next and previous buttons if necessary
     if(lastPosition == 0) {
         $(".paginateL").prop("disabled",true);
     }
-    if(lastPosition+PAGE_LENGTH >= currentStationslength) {
+    if(lastPosition+PAGE_LENGTH >= currentStationsLength) {
         $(".paginateR").prop("disabled",true);
     }
 
@@ -150,6 +167,33 @@ function listStations(direction) {
     pageLastDirection = direction;
 
 }// END listStations
+
+/**
+ * Displays only one station
+ * 
+ * @param id - the id of the station to be displayed
+ */
+function displayClickedStation(id) {
+    // Clear the current list of stations
+    $('.station').remove();
+
+    // Add selected station
+    stationListEle.append(currentStationsObj[id]);
+
+    // Add button to pagination bar to list all of the stations
+    var buttonBar = $('.pagination');
+    buttonBar.children().remove();
+    buttonBar.append('<button onclick="listStations(0, true)" class="w3-button paginateL">List Stations</button>');
+
+    // Reset pagination vars 
+    pageLastDirection = 0;
+    lastPosition = PAGE_LENGTH;
+
+}//END displayClickedStation
+
+function addToFavorites(id) {
+    
+}
 
 $( ".loginIcon" ).on("click", function(){
 	// are we logging in or logging out?
