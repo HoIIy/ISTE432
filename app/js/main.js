@@ -227,6 +227,7 @@ function getLoginForm(){
 
 function loginUser(){
 	$(".loginIcon").html("<i class=\"w3-xxlarge fa fa-user-circle w3-left\"></i> <span class=\"vCenter\">Logout</span>");
+	createProfile();
 	alert("user has or hasn't been logged in");
 	return false;
 }
@@ -236,6 +237,26 @@ function createAccount(){
 	$("#stationList").children().remove();
 
     requestData(loginDest, {"command":"register"}, function(data) {
+        try {
+            // Call the finish function
+            data = JSON.parse(data);
+            if (typeof data['error'] !== 'undefined') {
+                var successRedirect  = "?error=" + encodeURIComponent(data['error']);
+                window.location.href = successRedirect;
+            }
+            $("#stationList").append(data['msg']);
+        } catch(e) {
+            $("#stationList").append("Error getting data: please refresh or try again.");
+        }
+
+    });
+}
+
+function createProfile(){
+	$("#map").hide();
+	$("#stationList").children().remove();
+
+    requestData(loginDest, {"command":"profile"}, function(data) {
         try {
             // Call the finish function
             data = JSON.parse(data);
