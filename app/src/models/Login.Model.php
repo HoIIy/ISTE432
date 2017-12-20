@@ -16,11 +16,6 @@ class LoginPage {
 		return $element->output();
 	}
 	
-	public function profile(){
-        $element = new Template('../views/profile.tpl');
-       	return $element->output();
-    }
-	
 	public function isLoggedIn() {
 		if (isset($_SESSION["user"]) && strlen($_SESSION["user"]) > 0) {
 			return true;
@@ -48,12 +43,24 @@ class LoginPage {
 			$username  = strtolower($username);
 			$username  = $this->sanitizeData($username);
 		    $foundUser = $db->getDataWhere("user", "*", array("username"), array($username));
-		    if (!isset($foundUser) || count($foundUser) <= 0) {
+
+		    if (isset($foundUser["error"]) || count($foundUser) < 1) {
 			    return "Incorrect login.";
 		    }
+			$foundUser = $foundUser[0];
 			if ($foundUser["passwd"] === $password ) {
-				$_SESSION["user"] = ucfirst($username);
-				return "Welcome, ".$_SESSION["user"]."!";
+				// get the user's id and set it as the session
+				$userData = $db->getDataWhere("user", "id", array("username"), array($username));
+				$userData = $userData[0];
+				$userID   = $userData["id"];
+				$_SESSION["user"] = $userID;
+				
+				// get their name to greet them
+				$userData  = $db->getDataWhere("user", "fname, lname", array("username"), array($username));
+				$userData  = $userData[0];
+				$firstName = $userData["fname"];
+				$lastName  = $userData["lname"];
+				return "Welcome, ".ucfirst($firstName)." ".ucfirst($lastName)."!";
 			}
 			return "Incorrect login.";
 		}

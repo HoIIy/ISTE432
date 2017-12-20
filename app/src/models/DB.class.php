@@ -26,7 +26,7 @@ class DB {
 		
 	}
 
-	public function getDataWhere($table, $cols="*", $searchCols, $searchVals) {
+	public function getDataWhere($table, $cols, $searchCols, $searchVals) {
 		$searchLine = "";
 		for ($i=0; $i<count($searchCols); $i++) {
 			if ($i > 0) {
@@ -38,18 +38,24 @@ class DB {
 				$searchLine .= $searchCols[$i]."=$".($i+1);
 			}
 		}
-		$SQL = "SELECT $cols FROM af.user WHERE $searchLine";
+		$SQL = "SELECT $cols FROM af.".$table." WHERE $searchLine";
         $preparedStmt = pg_prepare($this->dbh, "getDataWhere", $SQL);
 		
 		$params = array();
 		for ($j=0; $j<count($searchCols); $j++) {
 			$params[] = $searchVals[$j];
 		}
-		$foundUser = pg_execute($this->dbh, "getDataWhere", $params);
-		if ($foundUser) {
-			return pg_fetch_array($foundUser);
+		
+		$foundData = pg_execute($this->dbh, "getDataWhere", $params);
+		
+		if ($foundData != false && pg_num_rows($foundData) > 0) {
+			$finalData = array();
+			while($foundDataRow = pg_fetch_array($foundData)) {
+				$finalData[] = $foundDataRow;
+			}
+		    return $finalData;
 		}
-		return "Error getting data.";
+		return array("error"=>"Error getting data.");
 	}
 	
     public function updateDataWhere($table, $colsToUpdate, $valsToUpdate, $searchCols, $searchVals){

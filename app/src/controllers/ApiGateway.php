@@ -10,7 +10,6 @@ if(!empty($_GET["command"]))
         case "stations":
             // Grab data from the API and parse it into an assoc array
             $apiQuery = "https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=tx9yueaUYcSYJn46Jov6S2KaP0F6h2oeWpgaPM9c&format=JSON&status=E&state=NY";
-
             break;
 
         case "nearest":

@@ -43,13 +43,6 @@ function loginAttempt(){
 	return json_encode(array("error"=>$html));
 }
 
-function buildprofileScreen(){
-    $html = '';
-	$loginPage = new LoginPage();
-	$html = $loginPage->profile();
-	return json_encode(array("msg"=>$html));
-}
-
 function logoutUser(){
     $html = '';
 	$loginPage = new LoginPage();
@@ -67,7 +60,7 @@ function logoutUser(){
 	return json_encode(array("msg"=>$html));
 }
 
-if(!empty($_POST["command"])) {
+if(isset($_POST["command"]) && !empty($_POST["command"])) {
 	switch($_POST["command"]){
 		case 'login':
 			echo buildLoginScreen();
@@ -83,10 +76,6 @@ if(!empty($_POST["command"])) {
 			
 		case 'loginAttempt':
 		    echo loginAttempt();
-			break;
-			
-		case 'profile':
-			echo buildprofileScreen();
 			break;
 			
 		case 'logout':

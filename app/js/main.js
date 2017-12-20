@@ -1,7 +1,7 @@
 // Ajax urls
 var apiDest = "src/controllers/ApiGateway.php";
 var loginDest = "src/controllers/Login.Controller.php";
-var addFaveDest = "src/controllers/AddFave.Controller.php";
+var profileDest = "src/controllers/Profile.Controller.php";
 
 var lastPosition = 0; // Keeps track of pagination index
 var pageLastDirection; // Keeps track of if 'next' or 'previous' was hit
@@ -193,24 +193,11 @@ function displayClickedStation(id) {
 }//END displayClickedStation
 
 function addToFavorites(id) {
-    requestData(addFaveDest, {"command":"addToFavorites", "station":id}, "POST", function(data) {
+    requestData(profileDest, {"command":"addToFavorites", "station":id}, "POST", function(data) {
         try {
-            // Call the finish function
-            data = JSON.parse(data);
-            if (typeof data['error'] !== 'undefined') {
-                var successRedirect  = "?error=" + encodeURIComponent(data['error']);
-                window.location.href = successRedirect;
-            }
-			else {
-				if (typeof data['msg'] !== 'undefined') {
-				    var successRedirect  = "?success=" + encodeURIComponent(data['msg']);
-                    window.location.href = successRedirect;
-				}
-				else {
-				    var successRedirect  = "?error=" + encodeURIComponent("Unknown error.");
-                    window.location.href = successRedirect;
-				}
-			}
+			// whatever message we have, error or success, don't redirect
+			data = data.slice(1, -1);
+			alert(data);
         } catch(e) {
             $("#stationList").html("<p>Error getting data: please refresh or try again.</p>");
         }
@@ -223,6 +210,25 @@ $( "#regIcon" ).on("click", function(){
 
     requestData(loginDest, {"command":"register"}, "POST", function(data) {
         try {
+            // Call the finish function
+            data = JSON.parse(data);
+            if (typeof data['error'] !== 'undefined') {
+                var successRedirect  = "?error=" + encodeURIComponent(data['error']);
+                window.location.href = successRedirect;
+            }
+            $("#stationList").append("<p>"+data["msg"]+"</p>");
+        } catch(e) {
+            $("#stationList").append("<p>Error getting data: please refresh or try again.</p>");
+        }
+    });
+});
+
+$( "#profIcon" ).on("click", function(){
+	$("#map").hide();
+	$("#stationList").children().remove();
+
+    requestData(profileDest, {"command":"viewProfile"}, "POST", function(data) {
+		try {
             // Call the finish function
             data = JSON.parse(data);
             if (typeof data['error'] !== 'undefined') {
@@ -273,7 +279,8 @@ function loginUser(){
 					"command" : "loginAttempt"};
 					
     requestData(loginDest, formData, "POST", function(data) {
-        try {
+		console.log(data);
+		try {
             // Call the finish function
 			data = JSON.parse(data);
             if (typeof data['error'] !== 'undefined') {
@@ -291,6 +298,7 @@ function loginUser(){
 				}
 			}
         } catch(e) {
+			console.log(e);
 			$("#stationList").html("<p>Error getting data: please refresh or try again.</p>");
         }
     });
@@ -319,7 +327,6 @@ function logoutUser(){
         } catch(e) {
             $("#stationList").append("Error getting data: please refresh or try again.");
         }
-
     });
 }
 
@@ -339,7 +346,6 @@ function createAccount(){
         } catch(e) {
             $("#stationList").append("Error getting data: please refresh or try again.");
         }
-
     });
 }
 
