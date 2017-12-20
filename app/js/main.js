@@ -278,7 +278,11 @@ function regUser(){
 }
 
 function forgotPass(){
-	alert("Password retrieval currently not implemented.");
+	alert("Password retrieval currently is not implemented.");
+}
+
+function changePass(){
+	alert("Password changing currently is not implemented.");
 }
 
 /**
