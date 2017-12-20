@@ -1,5 +1,5 @@
 <div class="loginForm">
-<h2 class=""><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>LOGIN</h2>
+<h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>LOGIN</h2>
     <div class="">
         <div class="loginFormLeft">
         <!--<span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>-->

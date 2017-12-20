@@ -195,7 +195,7 @@ function displayClickedStation(id) {
 function addToFavorites(id) {
     requestData(profileDest, {"command":"addToFavorites", "station":id}, "POST", function(data) {
         try {
-			// whatever message we have, error or success, don't redirect
+			// whatever message we have, error or success, don't redirect.
 			data = data.slice(1, -1);
 			alert(data);
         } catch(e) {
@@ -279,7 +279,6 @@ function loginUser(){
 					"command" : "loginAttempt"};
 					
     requestData(loginDest, formData, "POST", function(data) {
-		console.log(data);
 		try {
             // Call the finish function
 			data = JSON.parse(data);
@@ -331,26 +330,40 @@ function logoutUser(){
 }
 
 function createAccount(){
-	$("#map").hide();
-	$("#stationList").children().remove();
+	$( "#regIcon" ).click();
+}
 
-    requestData(loginDest, {"command":"register"}, function(data) {
-        try {
+function regUser(){
+	// send the data from the login form and try to log in
+	var formData = {"username": $( "input[name='username']").val(), 
+					"fname"   : $( "input[name='fname']").val(), 
+					"lname"   : $( "input[name='lname']").val(), 
+	                "psswd"   : $( "input[name='psswd']").val(),
+					"command" : "regAttempt"};
+					
+    requestData(loginDest, formData, "POST", function(data) {
+		try {
             // Call the finish function
-            data = JSON.parse(data);
+			data = JSON.parse(data);
             if (typeof data['error'] !== 'undefined') {
                 var successRedirect  = "?error=" + encodeURIComponent(data['error']);
                 window.location.href = successRedirect;
             }
-            $("#stationList").append(data['msg']);
+			else {
+				if (typeof data['msg'] !== 'undefined') {
+				    var successRedirect  = "?success=" + encodeURIComponent(data['msg']);
+                    window.location.href = successRedirect;
+				}
+				else {
+				    var successRedirect  = "?error=" + encodeURIComponent("Unknown error.");
+                    window.location.href = successRedirect;
+				}
+			}
         } catch(e) {
-            $("#stationList").append("Error getting data: please refresh or try again.");
+			console.log(e);
+			$("#stationList").html("<p>Error getting data: please refresh or try again.</p>");
         }
     });
-}
-
-function regUser(){
-    alert("user has or hasn't been registered");
 	return false;
 }
 

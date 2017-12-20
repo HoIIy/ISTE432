@@ -3,8 +3,16 @@
     <div class="loginFormLeft">
 		<form action="#" onsubmit="return regUser()" method="post">
 	    <div class="formField">
+			<label for="fname">First Name</label>
+			<input type="text" name="fname" maxlength="30" autofocus>
+		</div>
+	    <div class="formField">
+			<label for="fname">Surname</label>
+			<input type="text" name="lname" maxlength="30">
+		</div>
+	    <div class="formField">
 			<label for="username">Username</label>
-			<input type="text" name="username" maxlength="30" autofocus>
+			<input type="text" name="username" maxlength="30">
 		</div>
 	    <div class="formField">
 			<label for="password">Password</label>

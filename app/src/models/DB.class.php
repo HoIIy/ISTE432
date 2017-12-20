@@ -21,10 +21,6 @@ class DB {
 		    die("Error in connection: " . pg_last_error());
         }
     }
-	
-	public function getData($table, $cols="*") {
-		
-	}
 
 	public function getDataWhere($table, $cols, $searchCols, $searchVals) {
 		$searchLine = "";
@@ -47,31 +43,52 @@ class DB {
 		}
 		
 		$foundData = pg_execute($this->dbh, "getDataWhere", $params);
+
+		// error?
+		if (!$foundData) {
+			return array("error"=>"Error getting data.");
+		}
 		
-		if ($foundData != false && pg_num_rows($foundData) > 0) {
+		// empty?
+		if (pg_num_rows($foundData) > 0) {
 			$finalData = array();
 			while($foundDataRow = pg_fetch_array($foundData)) {
 				$finalData[] = $foundDataRow;
 			}
 		    return $finalData;
 		}
+		return array("error"=>"Data not found.");
+	}
+	
+	public function insertData($table, $cols, $vals){
+		$valLine = "";
+		$colLine = "";
+		for ($i=0; $i<count($cols); $i++) {
+			if ($i > 0) {
+				// second parameter, and onwards...
+				$valLine .= ", $".($i+1);
+				$colLine .= ", " . $cols[$i];
+			}
+			else {
+				// first (and maybe only) param
+				$valLine .= "$".($i+1);
+				$colLine .= $cols[$i];
+			}
+		}
+		
+		$SQL = "INSERT INTO af.".$table." ($colLine) VALUES ($valLine)";
+        $preparedStmt = pg_prepare($this->dbh, "insertData", $SQL);
+		
+		$params = array();
+		for ($j=0; $j<count($cols); $j++) {
+			$params[] = $vals[$j];
+		}
+		
+		$foundData = pg_execute($this->dbh, "insertData", $params);
+		if ($foundData != false && pg_affected_rows($foundData) > 0) {
+		    return array("msg"=>"Data inserted.");
+		}
 		return array("error"=>"Error getting data.");
-	}
-	
-    public function updateDataWhere($table, $colsToUpdate, $valsToUpdate, $searchCols, $searchVals){
-
-	}
-	
-	public function insertInto($table, $cols, $vals){
-	
-	}
-	
-	public function deleteDataWhere($table, $searchCols, $searchVals) {
-
-	}
-	
-	public function test(){
-		return "test";
 	}
 
 } // DB class

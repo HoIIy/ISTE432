@@ -28,14 +28,17 @@ function buildForgotPassScreen(){
 	return json_encode(array("msg"=>"forgot pass screen"));
 }
 
-function loginAttempt(){
+function loginAttempt($isReg){
 	$html = '';
 	$loginPage = new LoginPage();
 	if ($loginPage->isLoggedIn()){
 		// are we already logged in? go to the main page and error
 		return json_encode(array("error"=>"Please logout before attempting to log in."));
 	}
-	$html = $loginPage->loginUser($_POST["username"], $_POST["psswd"]);
+	$html = ($isReg) ? $loginPage->regUser($_POST["fname"], $_POST["lname"], $_POST["username"], $_POST["psswd"]): 
+	                   $loginPage->loginUser($_POST["username"], $_POST["psswd"]);
+	
+	// did we log in/register successfully?	
 	$loggedIn = $loginPage->isLoggedIn();
 	if ($loggedIn) {
 		return json_encode(array("msg"=>$html));
@@ -75,7 +78,11 @@ if(isset($_POST["command"]) && !empty($_POST["command"])) {
 			break;
 			
 		case 'loginAttempt':
-		    echo loginAttempt();
+		    echo loginAttempt(false);
+			break;
+			
+		case 'regAttempt':
+		    echo loginAttempt(true);
 			break;
 			
 		case 'logout':

@@ -26,11 +26,16 @@ class ProfilePage {
 		// did we already favorite this station?
 		$foundStation = $db->getDataWhere("user_stations", "*", array("user_id", "station_id"), array($userID, $station));
 		if (isset($foundStation["error"]) || count($foundStation) <= 0) {
-			//$addStation = $db->insertInto("user_stations", array(), array());
-			return array("msg"=>"pudding");
+			$addStation = $db->insertData("user_stations", 
+			                              array("user_id", "station_id", "is_hidden", "is_favorite"), 
+										  array($_SESSION["user"], $station, "f", "t"));
+										  
+			if (isset($addStation["msg"])) {
+				return json_encode("Station #".$station." was added to favorites.");
+			}
 		}
 		else {
-			return array("error"=>"That station is already in your favorites.");
+			return json_encode("Station ".$station." is already in your favorites.");
 		}
 	}
 	
@@ -67,9 +72,8 @@ class ProfilePage {
 	
 	// builds the user's profile view
 	public function ProfileForm(){
-		return $this->getStations();
 		$element = new Template('../views/profileForm.tpl');
-		$element->set("username", $_SESSION["user"]);
+		$element->set("username", $_SESSION["userName"]);
 		$element->set("userStations", $this->getStations());
 		return $element->output();
 	}
