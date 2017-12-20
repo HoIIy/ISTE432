@@ -1,6 +1,7 @@
 // Ajax urls
 var apiDest = "src/controllers/ApiGateway.php";
 var loginDest = "src/controllers/Login.Controller.php";
+var addFaveDest = "src/controllers/AddFave.Controller.php";
 
 var lastPosition = 0; // Keeps track of pagination index
 var pageLastDirection; // Keeps track of if 'next' or 'previous' was hit
@@ -36,7 +37,7 @@ function getStations(ele) {
     });
 
     // Trigger the api call
-    requestData(apiDest, values, function(res) {
+    requestData(apiDest, values, "GET", function(res) {
         clearAllMarkers();
 
         currentStations = $(res);
@@ -192,24 +193,7 @@ function displayClickedStation(id) {
 }//END displayClickedStation
 
 function addToFavorites(id) {
-    
-}
-
-$( ".loginIcon" ).on("click", function(){
-	// are we logging in or logging out?
-	if ($(this).text().toLowerCase().trim()==="login"){
-		getLoginForm();
-	}
-	else {
-		alert("logout");
-	}
-});
-
-function getLoginForm(){
-	//$("#map").hide();
-	//$("#stationList").children().remove();
-
-    requestData(loginDest, {"command":"login"}, function(data) {
+    requestData(addFaveDest, {"command":"addToFavorites", "station":id}, "POST", function(data) {
         try {
             // Call the finish function
             data = JSON.parse(data);
@@ -217,19 +201,126 @@ function getLoginForm(){
                 var successRedirect  = "?error=" + encodeURIComponent(data['error']);
                 window.location.href = successRedirect;
             }
-            $("#stationList").append(data['msg']);
+			else {
+				if (typeof data['msg'] !== 'undefined') {
+				    var successRedirect  = "?success=" + encodeURIComponent(data['msg']);
+                    window.location.href = successRedirect;
+				}
+				else {
+				    var successRedirect  = "?error=" + encodeURIComponent("Unknown error.");
+                    window.location.href = successRedirect;
+				}
+			}
+        } catch(e) {
+            $("#stationList").html("<p>Error getting data: please refresh or try again.</p>");
+        }
+    });
+}
+
+$( "#regIcon" ).on("click", function(){
+	$("#map").hide();
+	$("#stationList").children().remove();
+
+    requestData(loginDest, {"command":"register"}, "POST", function(data) {
+        try {
+            // Call the finish function
+            data = JSON.parse(data);
+            if (typeof data['error'] !== 'undefined') {
+                var successRedirect  = "?error=" + encodeURIComponent(data['error']);
+                window.location.href = successRedirect;
+            }
+            $("#stationList").append("<p>"+data["msg"]+"</p>");
+        } catch(e) {
+            $("#stationList").append("<p>Error getting data: please refresh or try again.</p>");
+        }
+    });
+});
+
+$( "#loginIcon" ).on("click", function(){
+	// are we logging in or logging out?
+	if ($(this).text().toLowerCase().trim()==="login"){
+		getLoginForm();
+	}
+	else {
+		logoutUser();
+	}
+});
+
+function getLoginForm(){
+	$("#map").hide();
+	$("#stationList").children().remove();
+
+    requestData(loginDest, {"command":"login"}, "POST", function(data) {
+        try {
+            // Call the finish function
+            data = JSON.parse(data);
+            if (typeof data['error'] !== 'undefined') {
+                var successRedirect  = "?error=" + encodeURIComponent(data['error']);
+                window.location.href = successRedirect;
+            }
+            $("#stationList").append("<p>"+data["msg"]+"</p>");
+        } catch(e) {
+			console.log(e);
+            $("#stationList").append("<p>Error getting data: please refresh or try again.</p>");
+        }
+    });
+}
+
+function loginUser(){
+	// send the data from the login form and try to log in
+	var formData = {"username": $( "input[name='username']").val(), 
+	                "psswd"   : $( "input[name='psswd']").val(),
+					"command" : "loginAttempt"};
+					
+    requestData(loginDest, formData, "POST", function(data) {
+        try {
+            // Call the finish function
+			data = JSON.parse(data);
+            if (typeof data['error'] !== 'undefined') {
+                var successRedirect  = "?error=" + encodeURIComponent(data['error']);
+                window.location.href = successRedirect;
+            }
+			else {
+				if (typeof data['msg'] !== 'undefined') {
+				    var successRedirect  = "?success=" + encodeURIComponent(data['msg']);
+                    window.location.href = successRedirect;
+				}
+				else {
+				    var successRedirect  = "?error=" + encodeURIComponent("Unknown error.");
+                    window.location.href = successRedirect;
+				}
+			}
+        } catch(e) {
+			$("#stationList").html("<p>Error getting data: please refresh or try again.</p>");
+        }
+    });
+	return false;
+}
+
+function logoutUser(){
+    requestData(loginDest, {"command":"logout"}, "POST", function(data) {
+        try {
+            // Call the finish function
+            data = JSON.parse(data);
+            if (typeof data['error'] !== 'undefined') {
+                var successRedirect  = "?error=" + encodeURIComponent(data['error']);
+                window.location.href = successRedirect;
+            }
+			else {
+				if (typeof data['msg'] !== 'undefined') {
+				    var successRedirect  = "?success=" + encodeURIComponent(data['msg']);
+                    window.location.href = successRedirect;
+				}
+				else {
+				    var successRedirect  = "?error=" + encodeURIComponent("Unknown error.");
+                    window.location.href = successRedirect;
+				}
+			}
         } catch(e) {
             $("#stationList").append("Error getting data: please refresh or try again.");
         }
 
     });
-}
-
-function loginUser(){
-	$(".loginIcon").html("<i class=\"w3-xxlarge fa fa-user-circle w3-left\"></i> <span class=\"vCenter\">Logout</span>");
-	createProfile();
-	alert("user has or hasn't been logged in");
-	return false;
 }
 
 function createAccount(){
@@ -252,37 +343,13 @@ function createAccount(){
     });
 }
 
-function createProfile(){
-	$("#map").hide();
-	$("#stationList").children().remove();
-
-    requestData(loginDest, {"command":"profile"}, function(data) {
-        try {
-            // Call the finish function
-            data = JSON.parse(data);
-            if (typeof data['error'] !== 'undefined') {
-                var successRedirect  = "?error=" + encodeURIComponent(data['error']);
-                window.location.href = successRedirect;
-            }
-            $("#stationList").append(data['msg']);
-        } catch(e) {
-            $("#stationList").append("Error getting data: please refresh or try again.");
-        }
-
-    });
-}
-
 function regUser(){
     alert("user has or hasn't been registered");
 	return false;
 }
 
 function forgotPass(){
-	alert("Password retrieval currently is not implemented.");
-}
-
-function changePass(){
-	alert("Password changing currently is not implemented.");
+	alert("Password retrieval currently not implemented.");
 }
 
 /**
@@ -291,13 +358,12 @@ function changePass(){
  * @param params - Data to pass in the request
  * @param doneFunct - Function to be called when a response is given
  */
-function requestData(destination, params, doneFunct) {
+function requestData(destination, params, reqMethod, doneFunct) {
     $.ajax({
         url: destination,
-        method:"GET",
+        method: reqMethod,
         data: params
     }).done(function(data) {
-//console.log(data);
         // Execute the callback function
         doneFunct(data);
 

@@ -3,8 +3,8 @@
     <!-- Profile -->
     <div>
         <h1><b>Profile</b></h1>
-        <p><b>User Name:</b> Admin</p>
-        <a href="#" onclick="changePass()">Change Password</a>
+        <p><b>User Name:</b></p>
+        <a href="">Change Password</a>
     </div>
     <!-- Content -->
     <div id="stationList" class="w3-container w3-card w3-white">

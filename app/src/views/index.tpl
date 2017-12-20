@@ -18,13 +18,18 @@
     <div class="w3-content w3-margin-top" style="max-width:1400px;">
 
         <div class="w3-container">
-            <div class="w3-right loginIcon">
+            <div class="w3-right loginIcon" id="loginIcon">
                 <a href="#" class="w3-hover-opacity noDecor">
-                   <i class="w3-xxlarge fa fa-user-circle w3-left"></i> <span class="vCenter">Login</span>
+                   <i class="w3-xxlarge fa fa-user-circle w3-left"></i> <span class="vCenter">[@nav1]</span>
                 </a>
             </div>
+			<div class="w3-right loginIcon" id="[@nav2Id]">
+                <a href="#" class="w3-hover-opacity noDecor">
+                   <i class="w3-xxlarge fa fa-user-circle w3-left"></i> <span class="vCenter">[@nav2]</span>
+                </a>
+			</div>
 	    
-            <h1>Alternative Fuel Station Finder</h1>
+            <h1><a href="[@mainDomain]">Alternative Fuel Station Finder</a></h1>
         </div>
 
         <!-- The Grid -->
