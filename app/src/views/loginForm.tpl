@@ -3,7 +3,7 @@
 
     <div class="w3-modal-content">
         <div class="w3-container">
-        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        <span onclick="document.getElementById('loginForm').style.display='none'" class="w3-button w3-display-topright">&times;</span>
 		<form action="#" onsubmit="return loginUser()" method="post">
 	    <div class="formField">
 			<label for="username">Username</label>
