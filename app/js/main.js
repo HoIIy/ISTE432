@@ -206,8 +206,8 @@ $( ".loginIcon" ).on("click", function(){
 });
 
 function getLoginForm(){
-	$("#map").hide();
-	$("#stationList").children().remove();
+	//$("#map").hide();
+	//$("#stationList").children().remove();
 
     requestData(loginDest, {"command":"login"}, function(data) {
         try {
